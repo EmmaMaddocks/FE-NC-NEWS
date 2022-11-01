@@ -2,10 +2,11 @@ import { useEffect } from "react"
 import { useState } from "react"
 import  Article  from './Article'
 
-function AllArticles() {
+function AllArticles({articles, setArticles}) {
    
     const [isLoading, setIsLoading] = useState(true);
-    const [articles, setArticles] = useState([]);
+
+    
 
 
 useEffect(() => {
@@ -13,7 +14,6 @@ useEffect(() => {
     fetch('https://em-nc-news.herokuapp.com/api/articles')
     .then((res) => res.json())
     .then((response) => {
-        console.log(response)
         setArticles(response)
         setIsLoading(false)
     })
