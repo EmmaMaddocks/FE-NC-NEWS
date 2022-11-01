@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useState } from "react";
+import HandleVotes from "./Votes";
 
 const FullArticle = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -29,8 +30,8 @@ const FullArticle = () => {
       <h2>{article.title}</h2>
       <p>{article.body}</p>
       <div className="article-details">
-      <p>Votes: {article.votes}</p>
       <p>Comments: {article.comment_count}</p>
+      <HandleVotes article={article}/>
 </div>
     </div>
   );
