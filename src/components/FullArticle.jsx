@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useState } from "react";
 import HandleVotes from "./Votes";
+import Comments from "./Comments";
 
 const FullArticle = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -13,7 +14,6 @@ const FullArticle = () => {
     fetch(`https://em-nc-news.herokuapp.com/api/articles/${article_id}`)
       .then((res) => res.json())
       .then((response) => {
-        console.log(response);
         setArticle(response);
         setIsLoading(false);
       });
@@ -22,7 +22,7 @@ const FullArticle = () => {
   if (isLoading) return <p>Loading...</p>;
 
   return (
-    <div className="article">
+    <>    <div className="article">
         <div className="article-details">
       <p>Posted by {article.author} </p>
       <p>{article.created_at}</p>
@@ -34,6 +34,9 @@ const FullArticle = () => {
       <HandleVotes article={article}/>
 </div>
     </div>
+    <Comments article_id={article_id}/>
+    </>
+
   );
 };
 

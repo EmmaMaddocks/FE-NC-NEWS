@@ -4,24 +4,6 @@ import HandleVotes from './Votes';
 const ArticleCard = ({ article }) => {
     const { title, img_url, author, topic, created_at, article_id, comment_count, votes } = article;
 
-    // const [voteIncrement, setVotes] = useState(0);
-    // const [err, setErr] = useState(null);
-
-
-    // const HandleInc = () => {
-    //   setVotes((currentVotes)=>(currentVotes+ 1))      
-    //     api.patchVotes(article_id, 1)
-    //     }
-
-    //     const HandleDec = () => {
-    //       setVotes((currentVotes)=>(currentVotes- 1))      
-    //       api.patchVotes(article_id, -1)
-    //       }
-  
-
-
-
-
     return (
         <li key={article_id} className="article-card">
 <div className="article-details">

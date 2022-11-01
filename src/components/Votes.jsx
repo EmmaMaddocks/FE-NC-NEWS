@@ -28,23 +28,4 @@ return (
     }
 
 
-  
-  
-//     // const HandleInc = () => {
-//     //     setVotes((currCount) => currCount + 1);
-//     //     api.patchVotes(article_id, 1)
-//     //     }
-
-
-  
-//     if (err) return <p>{err}</p>;
-//     return (                                                                                        
-//         <div className="vote">
-//         <p>Votes: {votes + voteIncrement}</p>
-//         <button className="vote-btn" onClick={api.voteOnArticle(1)}>+</button>
-//         {/* <button className="vote-btn" onClick={HandleDec}>-</button> */}
-//         </div>
-//     );
-//   };
-
   export default HandleVotes
