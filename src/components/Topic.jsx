@@ -4,10 +4,11 @@ const Topic = ({ topic }) => {
     return (
         <li key={slug} className="topic-card">
 <div className="topic-details">
-          <p>{slug}</p>
-          <p>{description} </p>
-          </div>
-        </li>
+<h4>{slug}</h4></div>
+    <div className="topic-img">
+<img src={`/images/${slug}.jpeg`} />
+</div>
+</li>
       );
     }
     

@@ -26,7 +26,6 @@ if (isLoading) return <p>Loading...</p>
 return (
     
     <div className="topic-container">
-    <h3>Topics</h3>
     <div className="topic-list">
 
         {topics.map((topic) => {
