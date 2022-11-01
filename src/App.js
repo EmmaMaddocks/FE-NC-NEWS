@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Nav from './components/nav'
 import AllArticles from './components/all-articles';
 import Title from './components/title';
+import FullArticle from './components/FullArticle';
 
 
 function App() {
@@ -15,6 +16,8 @@ function App() {
     <Routes>
 
     <Route path="/" element={<AllArticles />} />
+
+    <Route path="/articles/:article_id" element={<FullArticle />} />
     </Routes>
 
     </div>
