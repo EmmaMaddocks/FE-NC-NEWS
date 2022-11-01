@@ -1,14 +1,3 @@
-<<<<<<< Updated upstream
-// import { useState, useEffect } from "react"
-// import * as api from '../utils/api'
-// import AllTopics from "./AllTopics";
-
-
-// const Votes = (props) => {
-//     let { votes, article_id } = props
-//     const [voteIncrement, setVotes] = useState(0);
-//     const [err, setErr] = useState(null);
-=======
 import { useState } from 'react';
 import * as api from '../utils/api'
 
@@ -37,7 +26,6 @@ return (
     </div>
 )
     }
->>>>>>> Stashed changes
 
 
   
@@ -59,4 +47,4 @@ return (
 //     );
 //   };
 
-//   export default Votes
+  export default HandleVotes

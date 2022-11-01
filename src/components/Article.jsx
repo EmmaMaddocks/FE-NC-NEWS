@@ -1,13 +1,6 @@
 
-<<<<<<< Updated upstream
-import Votes from './Votes'
-import { voteOnArticle } from '../utils/api';
-import { useState } from 'react';
-import * as api from '../utils/api'
-=======
 import { Link } from "react-router-dom";
 import HandleVotes from './Votes';
->>>>>>> Stashed changes
 
 const ArticleCard = ({ article }) => {
     const { title, img_url, author, topic, created_at, article_id, comment_count, votes } = article;
@@ -38,21 +31,12 @@ const ArticleCard = ({ article }) => {
           <p>{created_at}</p>
           </div>
           <h2>{title}</h2>
-<<<<<<< Updated upstream
-      <div className="vote">
-    <p>Votes: {votes + voteIncrement}</p>
-    <button className="vote-btn" onClick={HandleInc}>+</button>
-    <button className="vote-btn" onClick={HandleDec}>-</button>
-
-  </div>
-=======
 <HandleVotes article={article}/>
 
     <Link to={`/articles/${article_id}`}>
         <button>Read Article</button>
       </Link>
 
->>>>>>> Stashed changes
         </li>
       );
     }
