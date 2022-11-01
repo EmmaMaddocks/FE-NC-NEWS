@@ -13,7 +13,6 @@ useEffect(() => {
     fetch('https://em-nc-news.herokuapp.com/api/topics')
     .then((res) => res.json())
     .then((response) => {
-        console.log(response)
         setTopics(response)
         setIsLoading(false)
     })
