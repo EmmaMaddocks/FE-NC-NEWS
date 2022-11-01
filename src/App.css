@@ -91,3 +91,7 @@ justify-content: center;
     font-size: 16pt;
 }
 
+.article {
+    width: 80vw;
+    background-color: rgb(252, 255, 238);
+}
