@@ -12,3 +12,7 @@ const BASE_URL = "https://em-nc-news.herokuapp.com/api";
         );
         return data;
       };
+
+      export const patchCommentVotes = async (comment_id, val) => {
+        await axios.patch(`${BASE_URL}/articles/${comment_id}`, { inc_votes: val });
+      };

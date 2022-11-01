@@ -1,5 +1,6 @@
 import * as api from '../utils/api'
 import { useState, useEffect } from 'react'
+import HandleCommentVotes from './CommentVotes';
 
 
 const Comments = ({article_id}) => {
@@ -32,8 +33,7 @@ const Comments = ({article_id}) => {
             <p>at {comment.created_at}</p>
             </div>
             <p>{comment.body}</p>
-            <p>Votes: {comment.votes}</p>
-
+<HandleCommentVotes comment={comment}/>
           </li>
 
         );
