@@ -1,43 +1,32 @@
-import { useEffect } from "react"
-import { useState } from "react"
-import  Topic  from './Topic'
+import { useEffect } from "react";
+import { useState } from "react";
+import Topic from "./Topic";
 
 function AllTopics() {
-   
-    const [isLoading, setIsLoading] = useState(true);
-    const [topics, setTopics] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [topics, setTopics] = useState([]);
 
+  useEffect(() => {
+    setIsLoading(true);
+    fetch("https://em-nc-news.herokuapp.com/api/topics")
+      .then((res) => res.json())
+      .then((response) => {
+        setTopics(response);
+        setIsLoading(false);
+      });
+  }, [setTopics]);
 
-useEffect(() => {
-    setIsLoading(true)
-    fetch('https://em-nc-news.herokuapp.com/api/topics')
-    .then((res) => res.json())
-    .then((response) => {
-        setTopics(response)
-        setIsLoading(false)
-    })
-}, [setTopics])
+  if (isLoading) return <p>Loading...</p>;
 
-if (isLoading) return <p>Loading...</p>
-
-
-
-return (
-    
+  return (
     <div className="topic-container">
-    <div className="topic-list">
-
+      <div className="topic-list">
         {topics.map((topic) => {
-            return (
-            <Topic key={topic.slug} topic={topic}/>
-   
-            )
+          return <Topic key={topic.slug} topic={topic} />;
         })}
-
+      </div>
     </div>
-    </div>
-)
-
+  );
 }
 
-export default AllTopics
+export default AllTopics;

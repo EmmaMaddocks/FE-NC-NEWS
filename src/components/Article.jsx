@@ -1,23 +1,22 @@
-import { useState } from 'react';
-import * as api from '../utils/api'
 import { Link } from "react-router-dom";
+import HandleVotes from './Votes';
 
 const ArticleCard = ({ article }) => {
     const { title, img_url, author, topic, created_at, article_id, comment_count, votes } = article;
 
-    const [voteIncrement, setVotes] = useState(0);
-    const [err, setErr] = useState(null);
+    // const [voteIncrement, setVotes] = useState(0);
+    // const [err, setErr] = useState(null);
 
 
-    const HandleInc = () => {
-      setVotes((currentVotes)=>(currentVotes+ 1))      
-        api.patchVotes(article_id, 1)
-        }
+    // const HandleInc = () => {
+    //   setVotes((currentVotes)=>(currentVotes+ 1))      
+    //     api.patchVotes(article_id, 1)
+    //     }
 
-        const HandleDec = () => {
-          setVotes((currentVotes)=>(currentVotes- 1))      
-          api.patchVotes(article_id, -1)
-          }
+    //     const HandleDec = () => {
+    //       setVotes((currentVotes)=>(currentVotes- 1))      
+    //       api.patchVotes(article_id, -1)
+    //       }
   
 
 
@@ -31,14 +30,12 @@ const ArticleCard = ({ article }) => {
           <p>{created_at}</p>
           </div>
           <h2>{title}</h2>
-      <div className="vote">
-    <p>Votes: {votes + voteIncrement}</p>
-    <button className="vote-btn" onClick={HandleInc}>+</button>
-    <button className="vote-btn" onClick={HandleDec}>-</button>
+<HandleVotes article={article}/>
+
     <Link to={`/articles/${article_id}`}>
         <button>Read Article</button>
       </Link>
-  </div>
+
         </li>
       );
     }

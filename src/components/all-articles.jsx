@@ -27,7 +27,7 @@ return (
     
     <div className="article-container">
     <h3>Showing all articles</h3>
-    <div className="article-list">
+
 
         {articles.map((article) => {
             return (
@@ -36,7 +36,7 @@ return (
             )
         })}
 
-    </div>
+  
     </div>
 )
 
