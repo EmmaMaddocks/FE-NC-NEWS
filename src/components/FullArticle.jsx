@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useState } from "react";
 import HandleVotes from "./Votes";
+import formatDate from "../utils/api";
 
 const FullArticle = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -25,7 +26,7 @@ const FullArticle = () => {
     <div className="article">
         <div className="article-details">
       <p>Posted by {article.author} </p>
-      <p>{article.created_at}</p>
+      <p>{formatDate(article.created_at)}</p>
       </div>
       <h2>{article.title}</h2>
       <p>{article.body}</p>
