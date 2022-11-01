@@ -63,6 +63,7 @@ flex-direction: row;
 align-items: center;
 justify-content: center;
 gap: 30px;
+margin-bottom: 40px;
 }
 
 .article-container {
@@ -75,10 +76,9 @@ justify-content: center;
 
 
 .article-card {
-    width: 80vw;
+    max-width: 800px;
+    margin: 40px;
     padding: 20px;
-    margin-bottom: 20px;
-    margin-right: 0px;
     text-align: center;
     background-color: rgb(252, 255, 238);
     border-radius: 10pt;
@@ -157,4 +157,24 @@ img {
 h4 {
     font-size: 66px;
     color: white;
+}
+
+.article {
+    max-width: 800px;
+    margin: 40px;
+    height: auto;
+    background-color: rgb(252, 255, 238);
+    padding: 20px;
+    border-radius: 10pt;
+
+}
+
+button {
+    background-color: rgb(234, 109, 72);  
+    border: none;
+    color: white;
+    padding: 10px;
+    text-transform: uppercase;
+    border-radius: 5pt;
+    margin-top: 20px;
 }

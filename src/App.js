@@ -7,6 +7,7 @@ import AllArticles from './components/all-articles';
 import Title from './components/title';
 import AllTopics from './components/AllTopics';
 import ArticlesByTopic from './components/ArticlesByTopic';
+import FullArticle from './components/FullArticle';
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
     <Route path="/" element={<AllArticles setArticles={setArticles} articles={articles}/>} />
     <Route path="/topics" element={<AllTopics />} />
     <Route path="/topics/:topic" element={<ArticlesByTopic setArticles={setArticles} articles={articles}/>} />
+    <Route path="/articles/:article_id" element={<FullArticle />} />
     </Routes>
 
     </div>
