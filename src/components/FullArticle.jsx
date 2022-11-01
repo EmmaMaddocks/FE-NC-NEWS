@@ -22,12 +22,16 @@ const FullArticle = () => {
 
   return (
     <div className="article">
-      <p>Comments: {article.comment_count}</p>
-      <p>Comments: {article.title}</p>
-      <p>Comments: {article.body}</p>
+        <div className="article-details">
       <p>Posted by {article.author} </p>
-      <p>Comments: {article.votes}</p>
       <p>{article.created_at}</p>
+      </div>
+      <h2>{article.title}</h2>
+      <p>{article.body}</p>
+      <div className="article-details">
+      <p>Votes: {article.votes}</p>
+      <p>Comments: {article.comment_count}</p>
+</div>
     </div>
   );
 };
