@@ -10,7 +10,7 @@ function AllArticles() {
 
 useEffect(() => {
     setIsLoading(true)
-    fetch('http://localhost:9090/api/articles')
+    fetch('https://em-nc-news.herokuapp.com/api/articles')
     .then((res) => res.json())
     .then((response) => {
         console.log(response)
