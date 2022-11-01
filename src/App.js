@@ -1,14 +1,24 @@
-
 import './App.css';
-const cors = require('cors');
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-App.use(cors());
+import Nav from './components/nav'
+import AllArticles from './components/all-articles';
+import Title from './components/title';
+
 
 function App() {
   return (
+    <BrowserRouter>
     <div className="App">
-    
+    <Title/>
+    <Nav/>
+    <Routes>
+
+    <Route path="/" element={<AllArticles />} />
+    </Routes>
+
     </div>
+    </BrowserRouter>
   );
 }
 
