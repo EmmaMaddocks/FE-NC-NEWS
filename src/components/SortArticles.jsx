@@ -1,33 +1,49 @@
-function SortArticles() {
-
-    handleSubmit = (event) => {
-        event.preventDefault()
+// import { useState, useEffect } from "react"
+// import * as api from '../utils/api'
 
 
-      }
 
-      handleChange = (event) => {
-        event.preventDefault()
+// function SortArticles({articles, setArticles}) {
 
-      }
-
-
-        return (
-          <form onSubmit={handleSubmit} className="sortOptions">
-            <select className="options" name="sort_by" onChange={handleChange}>
-              <option value='created_at'>Date</option>
-              <option value='comment_count'>Comment Count</option>
-              <option value='votes'>Votes</option>
-            </select>
-            <select className="options" name="order" onChange={handleChange}>
-              <option value="desc">Descending</option>
-              <option value="asc">Ascending</option>
-            </select>
-            <button className="options button">SORT</button>
-          </form>
-        );
+// const [sortBy, setSortBy] = useState()
+// const [order, setOrder] = useState()
 
 
-    }
+//     // const handleSortBy = (event) => {
+//     //     event.preventDefault()
+//     //     const { value } = event.target
+//     //     setSortBy(value)
+//     //   }
 
-    export default SortArticles
+
+//     // const handleOrder = (event) => {
+//     //     event.preventDefault()
+//     //     const { value } = event.target
+//     //     setOrder(value)
+//     //   }
+
+//     //   const handleSubmit = (event) => {
+//     //     event.preventDefault()
+//     //     api.getArticles(order, sortBy)  
+//     //     setArticles(articles)
+//     //   }
+
+//         return (
+//           <form onSubmit={handleSubmit} className="sortOptions">
+//             <select className="options" name="sortBy" onChange={handleSortBy}>
+//               <option value='created_at'>Date</option>
+//               <option value='comment_count'>Comment Count</option>
+//               <option value='votes'>Votes</option>
+//             </select>
+//             <select className="options" name="order" onChange={handleOrder}>
+//               <option value="DESC">Descending</option>
+//               <option value="ASC">Ascending</option>
+//             </select>
+//             <button className="options button">SORT</button>
+//           </form>
+//         );
+
+
+//     }
+
+//     export default SortArticles

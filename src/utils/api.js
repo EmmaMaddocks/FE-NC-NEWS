@@ -1,5 +1,8 @@
 import axios from "axios";
 const BASE_URL = "https://em-nc-news.herokuapp.com/api";
+const api = axios.create({
+    baseURL: "https://em-nc-news.herokuapp.com/api",
+  });
 
     export const patchVotes = async (article_id, val) => {
         await axios.patch(`${BASE_URL}/articles/${article_id}`, { inc_votes: val });
@@ -7,8 +10,7 @@ const BASE_URL = "https://em-nc-news.herokuapp.com/api";
 
 
       export const getComments = async article_id => {
-        const { data } = await axios.get(
-          `${BASE_URL}/articles/${article_id}/comments`
+        const { data } = await axios.get(`${BASE_URL}/articles/${article_id}/comments`
         );
         return data;
       };
@@ -27,7 +29,21 @@ const BASE_URL = "https://em-nc-news.herokuapp.com/api";
         })
       }
 
-      
+      export const getArticles = (sort_by, order) => {
+        let path = `/articles`
+        if (sort_by) path += `?sort_by=${sort_by}`;
+        if (order) path += `&order=${order}`;
+        return api
+        .get(path)
+        .then(({ data }) => {
+          return data;
+        })
+
+    };
+
+        
+
+
       const formatDate = date => {
         return new Date(date).toLocaleString('en-US');
       };
