@@ -2,6 +2,7 @@ import { useEffect } from "react"
 import { useState } from "react"
 import  Article  from './Article'
 
+
 function AllArticles({articles, setArticles}) {
    
     const [isLoading, setIsLoading] = useState(true);
@@ -27,6 +28,7 @@ return (
     
     <div className="article-container">
     <h3>Showing all articles</h3>
+
 
 
         {articles.map((article) => {

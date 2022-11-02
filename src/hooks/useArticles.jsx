@@ -3,7 +3,7 @@ import { useState } from "react"
 import axios from "axios";
 const BASE_URL = "https://em-nc-news.herokuapp.com/api";
 
-export const sortArticles = () => {
+export const useArticles = () => {
 
         const [isLoading, setIsLoading] = useState(true);
         const [articles, setArticles] = useState(null);

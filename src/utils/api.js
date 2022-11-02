@@ -20,3 +20,5 @@ const BASE_URL = "https://em-nc-news.herokuapp.com/api";
         return new Date(date).toLocaleString('en-US');
       };
       export default formatDate;
+
+      

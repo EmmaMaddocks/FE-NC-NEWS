@@ -10,6 +10,7 @@ const FullArticle = () => {
   const [article, setArticle] = useState([]);
   const { article_id } = useParams();
 
+
   useEffect(() => {
     setIsLoading(true);
     fetch(`https://em-nc-news.herokuapp.com/api/articles/${article_id}`)
