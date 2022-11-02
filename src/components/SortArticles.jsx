@@ -1,5 +1,3 @@
-import { sortArticles } from "../hooks/sortArticles";
-
 function SortArticles() {
 
     handleSubmit = (event) => {
