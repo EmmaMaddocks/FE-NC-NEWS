@@ -1,6 +1,9 @@
 import * as api from '../utils/api'
 import { useState, useEffect } from 'react'
 import HandleCommentVotes from './CommentVotes';
+import AddComment from './AddComment';
+
+
 
 
 const Comments = ({article_id}) => {
@@ -23,6 +26,7 @@ const Comments = ({article_id}) => {
 
   return (
     <>
+        <AddComment article_id={article_id} comments={comments} setComments={setComments}/>
 <h3>Comments</h3>
     <div className="article-list">
       {comments.map((comment) => {
@@ -33,6 +37,7 @@ const Comments = ({article_id}) => {
             <p>at {comment.created_at}</p>
             </div>
             <p>{comment.body}</p>
+
 <HandleCommentVotes comment={comment}/>
           </li>
 

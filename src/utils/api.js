@@ -16,6 +16,18 @@ const BASE_URL = "https://em-nc-news.herokuapp.com/api";
       export const patchCommentVotes = async (comment_id, val) => {
         await axios.patch(`${BASE_URL}/articles/${comment_id}`, { inc_votes: val });
       };
+
+
+      export const postComment = (commentBody, loggedInUser, article_id) => {
+        return axios.post(`${BASE_URL}/articles/${article_id}/comments`, {
+          username: loggedInUser,
+          body: commentBody
+        }).then(({ data }) => {
+          return data
+        })
+      }
+
+      
       const formatDate = date => {
         return new Date(date).toLocaleString('en-US');
       };
