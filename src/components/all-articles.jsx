@@ -1,45 +1,36 @@
-import { useEffect } from "react"
-import { useState } from "react"
-import  Article  from './Article'
+import { useEffect } from "react";
+import { useState } from "react";
+import Article from "./Article";
+import * as api from "../utils/api";
+import SortBy from "./SortBy";
 
-function AllArticles({articles, setArticles}) {
-   
-    const [isLoading, setIsLoading] = useState(true);
+function AllArticles() {
+  const [articles, setArticles] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-    
+  useEffect(() => {
+    setIsLoading(true);
+    api.getArticles().then((data) => {
+      setArticles(data);
+      setIsLoading(false);
+    });
+  }, []);
 
+  if (isLoading) return <p>Loading...</p>;
 
-useEffect(() => {
-    setIsLoading(true)
-    fetch('https://em-nc-news.herokuapp.com/api/articles')
-    .then((res) => res.json())
-    .then((response) => {
-        setArticles(response)
-        setIsLoading(false)
-    })
-}, [setArticles])
-
-if (isLoading) return <p>Loading...</p>
-
-
-
-return (
-    
-    <div className="article-container">
-    <h3>Showing all articles</h3>
-
-
+  return (
+    <>
+      <div className="article-container">
+        <div className="sort-header">
+        <h3>//all</h3>
+        <SortBy setArticles={setArticles} articles={articles} />
+        </div>
         {articles.map((article) => {
-            return (
-            <Article key={article.article_id} article={article}/>
-   
-            )
+          return <Article key={article.article_id} article={article} />;
         })}
-
-  
-    </div>
-)
-
+      </div>
+    </>
+  );
 }
 
-export default AllArticles
+export default AllArticles;

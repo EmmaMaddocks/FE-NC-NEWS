@@ -2,7 +2,7 @@ import * as api from '../utils/api'
 import { useState, useEffect } from 'react'
 import HandleCommentVotes from './CommentVotes';
 import AddComment from './AddComment';
-
+import formatDate from '../utils/api';
 
 
 
@@ -34,7 +34,7 @@ const Comments = ({article_id}) => {
           <li key={comment.comment_id} className="comment-card">
             <div className='comment-details'>
             <p>Posted by: {comment.author}</p>
-            <p>at {comment.created_at}</p>
+            <p>at {formatDate(comment.created_at)}</p>
             </div>
             <p>{comment.body}</p>
 
