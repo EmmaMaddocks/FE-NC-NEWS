@@ -205,6 +205,27 @@ button {
     margin: 0px;
 }
 
+.comment-card {
+    max-width: 800px;
+    margin: 40px;
+    padding: 20px;
+    text-align: center;
+    background-color: rgb(252, 255, 238);
+    border-radius: 10pt;
+}
+
+.comment-details {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-size: 14px;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid grey;
+   color: rgb(244, 141, 109);  
+
+}
+
 p {
     color:rgb(152, 152, 152);
 }

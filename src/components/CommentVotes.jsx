@@ -1,21 +1,23 @@
 import { useState } from 'react';
 import * as api from '../utils/api'
 
-function HandleVotes({article}) {
+function HandleCommentVotes({comment}) {
 
-    const {votes, article_id} = article
+    const votes = comment.votes
+    const comment_id = comment.comment_id
+
 
     const [err, setErr] = useState(null);
     const [voteIncrement, setVotes] = useState(0);
 
 const HandleInc = () => {
   setVotes((currentVotes)=>(currentVotes+ 1))      
-    api.patchVotes(article_id, 1)
+    api.patchVotes(comment_id, 1)
     }
 
     const HandleDec = () => {
       setVotes((currentVotes)=>(currentVotes- 1))      
-      api.patchVotes(article_id, -1)
+      api.patchVotes(comment_id, -1)
       }
 
 return (
@@ -28,4 +30,4 @@ return (
     }
 
 
-  export default HandleVotes
+  export default HandleCommentVotes
