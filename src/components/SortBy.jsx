@@ -42,7 +42,6 @@ const handleOrder = (event) => {
 
 return (
     <>
-    <BsChatQuote color="black" size={22} onClick={handleClick}/>
   <form onSubmit={handleSubmit} className="sort-btns">
   <select className="options" name="sortBy" onChange={handleSortBy}>
     <option value='created_at'>Date</option>

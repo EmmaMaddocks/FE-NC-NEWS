@@ -33,7 +33,7 @@ function AddComment({ article_id, comments, setComments }) {
         onChange={handleChange}
         placeholder="Add comment"
       />
-      <button type="submit">submit</button>
+      <button type="submit" className="submit-btn">+</button>
     </form>
   );
 }

@@ -51,9 +51,10 @@ h2 {
 h3 {
     color: black;
     font-weight: 200;
-    align-self: flex-start;
-    font-size: 22px;
-    margin: 0px;
+    align-self: center;
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 0px;
 }
 
 nav {
@@ -110,17 +111,22 @@ justify-content: center;
     color: black;
 }
 
+.topic-container {
+    width: 80vw;
+}
+
 img {
     object-fit: cover;
-    width: 500px;
-    height: 500px;
+    width: 300px;
+    height: 300px;
     border-radius: 6px;
 
 }
 
+
 .topic-card {
-    width: 500px;
-    height: 500px;
+    width: 300px;
+    height: 300px;
     position: relative;
     box-shadow: 0 19px 48px rgba(0,0,0,0.30), 0 5px 12px rgba(0,0,0,0.22);
     border-radius: 6px;
@@ -251,5 +257,32 @@ a.article-link {
 
 .article-link {
     align-self: flex-end;
-    margin-top:30px;
+}
+
+
+.article-bottom {
+    margin-top: 20px;
+}
+
+.comment-card {
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    margin: 40px 40px 10px 40px;
+    padding: 20px;
+    text-align: left;
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: 0 19px 48px rgba(46, 46, 46, 0.3), 0 5px 12px rgba(58, 58, 58, 0.22);
+
+}
+
+input {
+width: 60vw;
+height: 50px;
+}
+
+.submit-btn {
+    width: 50px;
+    height: 50px;
 }

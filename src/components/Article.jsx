@@ -17,8 +17,7 @@ const ArticleCard = ({ article }) => {
     <li key={article_id} className="article-card">
       <div className="article-details border-under">
 
-        <p>{comment_count} <BsChatQuote color="black" size={16}/></p>
-        <p>{votes} <BsHandThumbsUp color="black" size={16}/></p>
+
 
         <p>Posted by {author} </p>
         <p>{formatDate(created_at)}</p>
@@ -27,9 +26,14 @@ const ArticleCard = ({ article }) => {
       </div>
       <h2>{title}</h2>
       {/* <HandleVotes article={article} /> */}
+      <div className="article-details article-bottom">
+              <p>{comment_count} <BsChatQuote color="black" size={16}/></p>
+              <p>{votes} <BsHandThumbsUp color="black" size={16}/></p>
+
       <Link to={`/articles/${article_id}`} className='article-link'>
         Read Article
       </Link>
+      </div>
     </li>
   );
 };
