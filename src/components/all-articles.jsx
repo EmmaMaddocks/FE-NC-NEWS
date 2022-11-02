@@ -1,69 +1,36 @@
-import { useEffect } from "react"
-import { useState } from "react"
-import  Article  from './Article'
-import * as api from '../utils/api'
-import SortBy from './SortBy'
+import { useEffect } from "react";
+import { useState } from "react";
+import Article from "./Article";
+import * as api from "../utils/api";
+import SortBy from "./SortBy";
 
 function AllArticles() {
-   
-    const [articles, setArticles] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
+  const [articles, setArticles] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-
-
-useEffect(() => {
-    setIsLoading(true)
-    api.getArticles()
-    .then((data) => {
-        setArticles(data);
-        setIsLoading(false);
-      }
-    );
+  useEffect(() => {
+    setIsLoading(true);
+    api.getArticles().then((data) => {
+      setArticles(data);
+      setIsLoading(false);
+    });
   }, []);
 
-  
-  if (isLoading) return <p>Loading...</p>
+  if (isLoading) return <p>Loading...</p>;
 
-// const handleSortBy = (event) => {
-//     event.preventDefault()
-//     const { value } = event.target
-//     setSortBy(value)
-//   }
-
-
-// const handleOrder = (event) => {
-//     event.preventDefault()
-//     const { value } = event.target
-//     setOrderBy(value)
-//   }
-
-//   const handleSubmit = (event) => {
-//     event.preventDefault()
-//     api.getArticles(sort_by, order)
-//     .then((data)=>{
-//         setArticles(data);
-//     })
-//   }
-
-
-
-return (
+  return (
     <>
-    
-
-<SortBy setArticles={setArticles} articles={articles}/>
-    <div className="article-container">
-    <h3>Showing all articles</h3>
+      <div className="article-container">
+        <div className="sort-header">
+        <h3>//all</h3>
+        <SortBy setArticles={setArticles} articles={articles} />
+        </div>
         {articles.map((article) => {
-            return (
-            <Article key={article.article_id} article={article}/>
-   
-            )
+          return <Article key={article.article_id} article={article} />;
         })}
-    </div>
+      </div>
     </>
-)
-
+  );
 }
 
-export default AllArticles
+export default AllArticles;

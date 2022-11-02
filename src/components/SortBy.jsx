@@ -1,7 +1,8 @@
-import { useEffect } from "react"
+
 import { useState } from "react"
-import  Article  from './Article'
 import * as api from '../utils/api'
+import {  BsChatQuote } from "react-icons/bs";
+
 
 function SortBy({articles, setArticles}) {
 
@@ -30,11 +31,22 @@ const handleOrder = (event) => {
     })
   }
 
+  const handleClick = (event) => {
+    event.preventDefault()
+    setSortBy('comment_count')
+    api.getArticles(sort_by, order)
+    .then((data)=>{
+        setArticles(data);
+    })
+  }
 
 return (
+    <>
+    <BsChatQuote color="black" size={22} onClick={handleClick}/>
   <form onSubmit={handleSubmit} className="sort-btns">
   <select className="options" name="sortBy" onChange={handleSortBy}>
     <option value='created_at'>Date</option>
+
     <option value='comment_count'>Comment Count</option>
     <option value='votes'>Votes</option>
   </select>
@@ -44,6 +56,7 @@ return (
   </select>
   <button className="options button">SORT</button>
 </form>
+</>
 )
 }
 
