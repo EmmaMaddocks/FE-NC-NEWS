@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useState } from "react";
 
 import Article from "./Article";
+import SortBy from "./SortBy";
 
 
 function ArticlesByTopic({articles, setArticles}) {
@@ -18,7 +19,12 @@ function ArticlesByTopic({articles, setArticles}) {
       });
   }, []);
 
+
+
+
   return (
+    <>
+    <SortBy  setArticles={setArticles} articles={articles}/>
     <div className="article-container">
   <h3> Showing all articles related to {topic}</h3>
     <div className="article-list">
@@ -32,6 +38,7 @@ function ArticlesByTopic({articles, setArticles}) {
 
     </div>
     </div>
+    </>
   );
 }
 

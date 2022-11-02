@@ -13,6 +13,9 @@ import FullArticle from './components/FullArticle';
 function App() {
 
   const [articles, setArticles] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [order, setOrderBy] = useState("");
+  const [sort_by, setSortBy] = useState("");
 
 
   return (
@@ -22,9 +25,9 @@ function App() {
     <Nav/>
     <Routes>
 
-    <Route path="/" element={<AllArticles setArticles={setArticles} articles={articles}/>} />
+    <Route path="/" element={<AllArticles setArticles={setArticles} articles={articles} isLoading={isLoading} setIsLoading={setIsLoading} order={order} setOrderBy={setOrderBy}/>} />
     <Route path="/topics" element={<AllTopics />} />
-    <Route path="/topics/:topic" element={<ArticlesByTopic setArticles={setArticles} articles={articles}/>} />
+    <Route path="/topics/:topic" element={<ArticlesByTopic setArticles={setArticles} articles={articles} isLoading={isLoading} setIsLoading={setIsLoading} order={order} setOrderBy={setOrderBy}/>} />
     <Route path="/articles/:article_id" element={<FullArticle />} />
     </Routes>
 

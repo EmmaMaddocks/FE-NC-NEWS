@@ -29,10 +29,11 @@ const api = axios.create({
         })
       }
 
-      export const getArticles = (sort_by, order) => {
+      export const getArticles = (sort_by, order, topic) => {
         let path = `/articles`
         if (sort_by) path += `?sort_by=${sort_by}`;
         if (order) path += `&order=${order}`;
+        if (topic) path += `&topic=${topic}`;
         return api
         .get(path)
         .then(({ data }) => {
