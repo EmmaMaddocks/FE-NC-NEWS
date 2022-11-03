@@ -13,7 +13,7 @@ const DeleteCommentByUser = ({ id }) => {
 
 
     return (
-        <BsTrash
+        <BsTrash color="rgb(3, 169, 152)" size={16}
           className="deleteButton"
           onClick={() => {
             deleteComment();

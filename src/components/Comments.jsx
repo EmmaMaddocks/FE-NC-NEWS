@@ -39,9 +39,10 @@ useEffect(() => {
             <p className='meta-data'>at {formatDate(comment.created_at)}</p>
             </div>
             <p className='comment-body'>{comment.body}</p>
-
+<div className='vote'>
 <HandleCommentVotes comment={comment}/>
 {loggedInUser === comment.author ? <DeleteCommentByUser id={comment.comment_id} article_id={article_id} comments={comments} /> : null}
+</div>
           </li>
 
         );
