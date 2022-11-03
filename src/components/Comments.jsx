@@ -5,6 +5,7 @@ import AddComment from './AddComment';
 import formatDate from '../utils/api';
 import DeleteCommentByUser from './DeleteComment';
 import { useComments } from '../hooks/useComments';
+import LetteredAvatar from 'lettered-avatar';
 
 
 
@@ -35,8 +36,17 @@ useEffect(() => {
         return (
           <li key={comment.comment_id} className="comment-card">
             <div className='comment-details'>
-            <p className='meta-data'>Posted by: {comment.author}</p>
-            <p className='meta-data'>at {formatDate(comment.created_at)}</p>
+            <div className="avatar-container">
+      <LetteredAvatar className='avatar' name={comment.author} options={{  
+  
+  size: 60, 
+  twoLetter: true,
+  shape: 'round',
+  bgColor: 'rgb(3, 169, 152)', 
+  tooltip: true, 
+  imgClass: 'avatar'
+}}/>{comment.author} </div>
+           {formatDate(comment.created_at)}
             </div>
             <p className='comment-body'>{comment.body}</p>
 <div className='vote'>
