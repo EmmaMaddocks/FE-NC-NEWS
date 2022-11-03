@@ -32,8 +32,13 @@ const FullArticle = ({loggedInUser}) => {
       <h2>{article.title}</h2>
       <p>{article.body}</p>
       <div className="article-details">
-      <p>{article.comment_count} <BsChatQuote color="black" size={16}/></p>
+<div className="comment-count">
+    <BsChatQuote color="black" size={20}/>
+    <p>{article.comment_count}</p>
+    </div>
+     <div className="article-votes">
       <HandleVotes article={article}/>
+      </div>
 </div>
     </div>
     <Comments article_id={article_id} loggedInUser={loggedInUser}/>

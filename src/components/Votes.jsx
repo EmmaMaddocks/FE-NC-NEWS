@@ -21,11 +21,13 @@ const HandleInc = () => {
       }
 
 return (
-  <>    <p>Votes: {votes + voteIncrement}</p>
-    <BsHandThumbsUp color="black" size={16} onClick={HandleInc}/>
-    <BsHandThumbsDown color="black" size={16} onClick={HandleDec}/>
+  <>
+   <p>Votes: {votes + voteIncrement}</p>
+   <div className='votes'> 
+    <BsHandThumbsUp color="black" size={20} onClick={HandleInc}/>
+    <BsHandThumbsDown color="black" size={20} onClick={HandleDec}/>
+    </div>
     </>
-
 )
     }
 
