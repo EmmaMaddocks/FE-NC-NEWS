@@ -18,16 +18,16 @@ function ArticlesByTopic({ articles, setArticles }) {
 
   return (
     <>
-      <div className="article-container">
+
       <div className="sort-header">
         <h3>//{topic}</h3>
         <SortBy setArticles={setArticles} articles={articles} />
         </div>
-        <div className="article-list">
+        <div className="article-container">
           {articles.map((article) => {
             return <Article key={article.article_id} article={article} />;
           })}
-        </div>
+
       </div>
     </>
   );

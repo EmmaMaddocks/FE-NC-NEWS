@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import * as api from '../utils/api'
+import { BsHandThumbsUp, BsHandThumbsDown } from "react-icons/bs";
 
 function HandleCommentVotes({comment}) {
 
@@ -23,8 +24,8 @@ const HandleInc = () => {
 return (
     <div className="vote">
     <p>Votes: {votes + voteIncrement}</p>
-    <button className="vote-btn" onClick={HandleInc}>+</button>
-    <button className="vote-btn" onClick={HandleDec}>-</button>
+    <BsHandThumbsUp color="black" size={16} onClick={HandleInc}/>
+    <BsHandThumbsDown color="black" size={16} onClick={HandleDec}/>
     </div>
 )
     }

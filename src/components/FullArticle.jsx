@@ -4,6 +4,7 @@ import { useState } from "react";
 import HandleVotes from "./Votes";
 import Comments from "./Comments";
 import formatDate from "../utils/api";
+import { BsChatQuote } from "react-icons/bs";
 
 const FullArticle = ({loggedInUser}) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -31,7 +32,7 @@ const FullArticle = ({loggedInUser}) => {
       <h2>{article.title}</h2>
       <p>{article.body}</p>
       <div className="article-details">
-      <p>Comments: {article.comment_count}</p>
+      <p>{article.comment_count} <BsChatQuote color="black" size={16}/></p>
       <HandleVotes article={article}/>
 </div>
     </div>

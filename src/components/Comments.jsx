@@ -27,17 +27,18 @@ useEffect(() => {
 
   return (
     <>
-        <AddComment article_id={article_id} comments={comments} />
-<h3>Comments</h3>
-    <div className="article-list">
+        <AddComment article_id={article_id} comments={comments} setComments={setComments}/>
+
+    <div className="comments-list">
+    <h3 className='comments-header'>Comments</h3>
       {comments.map((comment) => {
         return (
           <li key={comment.comment_id} className="comment-card">
             <div className='comment-details'>
-            <p>Posted by: {comment.author}</p>
-            <p>at {formatDate(comment.created_at)}</p>
+            <p className='meta-data'>Posted by: {comment.author}</p>
+            <p className='meta-data'>at {formatDate(comment.created_at)}</p>
             </div>
-            <p>{comment.body}</p>
+            <p className='comment-body'>{comment.body}</p>
 
 <HandleCommentVotes comment={comment}/>
 {loggedInUser === comment.author ? <DeleteCommentByUser id={comment.comment_id} article_id={article_id} comments={comments} /> : null}
