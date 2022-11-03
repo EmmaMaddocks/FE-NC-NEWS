@@ -286,14 +286,39 @@ a.article-link {
     font-size: 14px;
 }
 
+.comment-box {
+ display: flex;
+ flex-direction: column;
+ gap: 30px;
+ align-items: center;
+}
+
+*:focus {
+    outline: none;
+}
+
+
+textarea:focus, input:focus{
+    outline: none;
+    border: 1px solid rgb(3, 169, 152);
+}
+
 input {
+width: 60vw;
 max-width: 800px;
-height: 50px;
+height: 150px;
+font-size: 16pt;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
 }
 
 .submit-btn {
-    width: 50px;
-    height: 50px;
+
 }
 
 
@@ -306,7 +331,7 @@ height: 50px;
 
 .comments-list{
     max-width: 800px;
-    padding: 40px;
+    padding: 0px 40px;
 }
 
 .vote {

@@ -4,6 +4,7 @@ import * as api from "../utils/api";
 
 function AddComment({ article_id}) {
   const [inputValue, setInputValue] = useState("");
+  const [showCommentBox, setCommentBox] = useState(false)
 
   const loggedInUser = "jessjelly";
 
@@ -24,20 +25,24 @@ function AddComment({ article_id}) {
     setInputValue("");
   };
 
+  const onClick = (event) => setCommentBox(current => !current)
 
-  
   return (
+    <div className="comment-box">
+    <button onClick={onClick}> add comment</button>
+    {showCommentBox && (
     <form onSubmit={HandleAddComment}>
-      <input
-        id="comment-body"
-        type="text"
-        value={inputValue}
-        onChange={handleChange}
-        placeholder="Add comment"
-      />
-      <button type="submit" className="submit-btn">+</button>
-    </form>
-  );
+    <input
+      id="comment-body"
+      type="text"
+      value={inputValue}
+      onChange={handleChange}
+    />
+    <button type="submit" className="submit-btn">submit comment</button>
+  </form>
+      )}
+      </div>
+    );
 }
 
 export default AddComment;
