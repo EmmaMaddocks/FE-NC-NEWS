@@ -21,7 +21,7 @@ function AllArticles() {
   return (
     <>
             <div className="sort-header">
-        <h3>//all</h3>
+        <h3 className="collection-title">All articles</h3>
         <SortBy setArticles={setArticles} articles={articles} />
         </div>
       <div className="article-container">

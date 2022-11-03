@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import Topic from "./Topic";
 
-function AllTopics() {
+function AllTopics({loggedInUser}) {
   const [isLoading, setIsLoading] = useState(true);
   const [topics, setTopics] = useState([]);
 
@@ -19,6 +19,7 @@ function AllTopics() {
   if (isLoading) return <p>Loading...</p>;
 
   return (
+ <>
     <div className="topic-container">
       <div className="topic-list">
         {topics.map((topic) => {
@@ -26,6 +27,7 @@ function AllTopics() {
         })}
       </div>
     </div>
+    </>
   );
 }
 

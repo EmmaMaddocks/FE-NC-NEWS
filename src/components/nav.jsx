@@ -1,11 +1,15 @@
 import { Link } from "react-router-dom";
+import { BsHouseDoorFill } from "react-icons/bs";
 
 function Nav() {
   return (
     <div className="nav-bar">
       <nav>
         <Link to="/" className="nav-link">
-          Home
+        <BsHouseDoorFill color="black" size={24}/>
+        </Link>
+        <Link to="/articles" className="nav-link">
+          All articles
         </Link>
         <Link to="/topics" className="nav-link">
           Topics

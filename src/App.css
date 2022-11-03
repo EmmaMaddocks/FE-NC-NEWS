@@ -272,13 +272,13 @@ p {
 
 
 .sort-header{
-width: 70vw;;
 display: flex;
 flex-wrap: wrap;
 flex: row;
-align-items: center;
+align-items: flex-end;
 justify-content: space-between;
 margin: 0px 40px 0px 40px;
+width: 70%;
 
 }
 
@@ -333,7 +333,7 @@ font-size: 16pt;
 
 form {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     gap: 20px;
 }
@@ -364,3 +364,93 @@ select {
     display: inline;
   }
 
+.home-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.welcome {
+    text-align: center;
+    
+}
+
+.collection-title {
+    color: rgb(3, 169, 152);
+    font-size: 22px;
+    font-weight: 400;
+    margin-bottom: 0px;
+    margin-top: 60px;
+}
+
+.collection-container {
+    margin-top: 0px;
+    margin-bottom: 40px;
+}
+
+  footer {
+    height: 40px;
+    background-color: rgb(3, 169, 152);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px 10px 40px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+  
+  }
+  
+  .footer-icon {
+    color: white;
+  }
+  
+  .footer-icon-container {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    padding-right: 100px;
+  
+  }
+  
+  .footer-links {
+    list-style: none;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+  }
+  
+  .footer-link {
+    list-style: none;
+    color: white;
+  }
+  
+  @media only screen and (max-width: 600px) {
+
+    footer {
+        flex-direction: column-reverse;
+        height: max-content;
+        padding: 10px 0px 10px 0px;
+        margin-top: 0px;
+        width: 100vw;
+    
+      }
+    
+      .footer-icon-container {
+        padding: 0;
+      }
+    
+      .footer-links {
+    display: none;
+      }
+    
+.sort-header{
+    flex-direction: column;
+    gap:30px;
+}
+
+
+  }
