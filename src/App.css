@@ -290,6 +290,9 @@ height: 50px;
 
 .comments-header {
     align-self: flex-start;
+    color: black;
+    font-weight: 700;
+    margin-top: 50px;
 }
 
 .vote {
