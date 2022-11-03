@@ -15,6 +15,7 @@ function Nav() {
           Topics
         </Link>
       </nav>
+      <div className="separator"></div>
     </div>
   );
 }
