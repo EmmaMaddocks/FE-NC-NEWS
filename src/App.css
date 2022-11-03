@@ -468,6 +468,7 @@ select {
     flex-direction: column;
     gap:30px;
     margin: 0;
+    align-content: center;
 }
 
 .article-container,
@@ -481,11 +482,16 @@ select {
 
 .article-card {
     width: 90vw;
+    min-height: 200px;
     height: auto;
 }
 
 .article-details {
     gap: 10px;
+}
+
+.article-bottom {
+    margin-top: 20px;
 }
 
 .collection-title {
