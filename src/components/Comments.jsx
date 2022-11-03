@@ -1,34 +1,33 @@
 import * as api from '../utils/api'
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import HandleCommentVotes from './CommentVotes';
 import AddComment from './AddComment';
 import formatDate from '../utils/api';
-import DeleteComment from './DeleteComment';
 import DeleteCommentByUser from './DeleteComment';
+import { useComments } from '../hooks/useComments';
 
 
 
 const Comments = ({article_id, loggedInUser}) => {
 
-    const [comments, setComments] = useState()
-    const [isLoading, setIsLoading] = useState(true);
+
+const { comments, isLoading, setComments  } = useComments(article_id)
+
+useEffect(() => {
+    api.getComments(article_id)
+    .then((data) => {
+     setComments(data)
+    })
+}, [comments])
 
 
-   useEffect(() => {
-       setIsLoading(true)
-       api.getComments(article_id)
-       .then((data) => {
-        setComments(data)
-        setIsLoading(false)
-       })
-   }, [setComments])
-   
+
    if (isLoading) return <p>Loading...</p>
    
 
   return (
     <>
-        <AddComment article_id={article_id} comments={comments} setComments={setComments}/>
+        <AddComment article_id={article_id} comments={comments} />
 <h3>Comments</h3>
     <div className="article-list">
       {comments.map((comment) => {
@@ -41,7 +40,7 @@ const Comments = ({article_id, loggedInUser}) => {
             <p>{comment.body}</p>
 
 <HandleCommentVotes comment={comment}/>
-{loggedInUser === comment.author ? <DeleteCommentByUser id={comment.comment_id} comments={comments} setComments={setComments}/> : null}
+{loggedInUser === comment.author ? <DeleteCommentByUser id={comment.comment_id} article_id={article_id} comments={comments} /> : null}
           </li>
 
         );

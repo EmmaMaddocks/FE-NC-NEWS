@@ -4,7 +4,6 @@ import { useState } from "react";
 import HandleVotes from "./Votes";
 import Comments from "./Comments";
 import formatDate from "../utils/api";
-import AddComment from "./AddComment";
 
 const FullArticle = ({loggedInUser}) => {
   const [isLoading, setIsLoading] = useState(true);
