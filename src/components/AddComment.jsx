@@ -1,7 +1,8 @@
 import { useState } from "react";
 import * as api from "../utils/api";
 
-function AddComment({ article_id, comments, setComments }) {
+
+function AddComment({ article_id}) {
   const [inputValue, setInputValue] = useState("");
 
   const loggedInUser = "jessjelly";
@@ -21,9 +22,10 @@ function AddComment({ article_id, comments, setComments }) {
     };
     api.postComment(inputValue, loggedInUser, article_id);
     setInputValue("");
-    setComments([...comments, newComment]);
   };
 
+
+  
   return (
     <form onSubmit={HandleAddComment}>
       <input

@@ -1,26 +1,27 @@
 import * as api from '../utils/api'
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import HandleCommentVotes from './CommentVotes';
 import AddComment from './AddComment';
 import formatDate from '../utils/api';
+import DeleteCommentByUser from './DeleteComment';
+import { useComments } from '../hooks/useComments';
 
 
 
-const Comments = ({article_id}) => {
-
-    const [comments, setComments] = useState()
-    const [isLoading, setIsLoading] = useState(true);
+const Comments = ({article_id, loggedInUser}) => {
 
 
-   useEffect(() => {
-       setIsLoading(true)
-       api.getComments(article_id)
-       .then((data) => {
-        setComments(data)
-        setIsLoading(false)
-       })
-   }, [setComments])
-   
+const { comments, isLoading, setComments  } = useComments(article_id)
+
+useEffect(() => {
+    api.getComments(article_id)
+    .then((data) => {
+     setComments(data)
+    })
+}, [comments])
+
+
+
    if (isLoading) return <p>Loading...</p>
    
 
@@ -40,6 +41,7 @@ const Comments = ({article_id}) => {
             <p className='comment-body'>{comment.body}</p>
 
 <HandleCommentVotes comment={comment}/>
+{loggedInUser === comment.author ? <DeleteCommentByUser id={comment.comment_id} article_id={article_id} comments={comments} /> : null}
           </li>
 
         );
