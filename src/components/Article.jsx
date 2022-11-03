@@ -26,9 +26,9 @@ const ArticleCard = ({ article }) => {
       </div>
       <h2>{title}</h2>
       {/* <HandleVotes article={article} /> */}
-      <div className="article-details article-bottom">
-              <p>{comment_count} <BsChatQuote color="black" size={16}/></p>
-              <p>{votes} <BsHandThumbsUp color="black" size={16}/></p>
+      <div className="article-bottom">
+              <p className='article-icons'>{comment_count} <BsChatQuote color="black" size={16}/></p>
+              <p  className='article-icons'>{votes} <BsHandThumbsUp color="black" size={16}/></p>
 
       <Link to={`/articles/${article_id}`} className='article-link'>
         Read Article

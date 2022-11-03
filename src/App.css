@@ -5,7 +5,7 @@
 }
 
 body {
-    width: 100%;
+    width: 100vw;
     margin: 0 auto;
     font-family: 'Montserrat', sans-serif;
     background-color: rgb(255, 255, 255);  
@@ -53,8 +53,6 @@ h3 {
     font-weight: 200;
     align-self: center;
     font-size: 18px;
-    margin-top: 20px;
-    margin-bottom: 0px;
 }
 
 nav {
@@ -71,7 +69,8 @@ margin-bottom: 40px;
 
 .article-container {
 display: flex;
-flex-direction: column;
+flex-direction: row;
+flex-wrap: wrap;
 align-items: center;
 justify-content: center;
 
@@ -79,10 +78,12 @@ justify-content: center;
 
 
 .article-card {
-    width: 70vw;
+    width: 500px;
+    height: 250px;
     display: flex;
+    justify-content: space-between;
     flex-direction: column;
-    margin: 40px 40px 10px 40px;
+    margin: 40px 10px 10px 10px;
     padding: 20px;
     text-align: left;
     background-color: white;
@@ -96,6 +97,17 @@ justify-content: center;
     font-size: 14px;
     align-items: center;
     justify-content: space-between;
+}
+
+
+.article-bottom {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-size: 14px;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 20px;
 }
 
 
@@ -152,7 +164,7 @@ img {
     width: 100%;
     opacity: 0;
     transition: .5s ease;
-    background-color: rgb(234, 109, 72);  
+    background-color: rgb(3, 169, 152);  
   }
   
   .topic-card:hover .topic-details {
@@ -181,9 +193,11 @@ img {
     padding: 20px;
     border-radius: 6px;
     box-shadow: 0 19px 48px rgba(0,0,0,0.30), 0 5px 12px rgba(0,0,0,0.22);
-
-
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
+
 
 button {
     background-color: rgb(3, 169, 152);  
@@ -227,7 +241,7 @@ button {
 
 p {
     color:rgb(152, 152, 152);
-    margin-top: 20px;
+    margin: 0px;
 }
 
 .meta-data {
@@ -241,7 +255,7 @@ width: 70vw;;
 display: flex;
 flex-wrap: wrap;
 flex: row;
-align-items: space-between;
+align-items: center;
 justify-content: space-between;
 margin: 0px 40px 0px 40px;
 
@@ -254,22 +268,17 @@ a.article-link {
     color: rgb(3, 169, 152);  
 }
 
-.article-link {
-    align-self: flex-end;
+.article-icons {
+    font-size: 12pt;
+    color: black;
 }
-
-
-.article-bottom {
-    margin-top: 20px;
-}
-
 .comment-card {
-    width: 80vw;
     display: flex;
     flex-direction: column;
     text-align: left;
     background-color: white;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid rgb(3, 169, 152);  
+    gap:30px;
 
 }
 
@@ -278,7 +287,7 @@ a.article-link {
 }
 
 input {
-width: 60vw;
+max-width: 800px;
 height: 50px;
 }
 
@@ -295,6 +304,22 @@ height: 50px;
     margin-top: 50px;
 }
 
+.comments-list{
+    max-width: 800px;
+    padding: 40px;
+}
+
 .vote {
     align-self: flex-end;
+    margin-bottom: 10px;
 }
+
+select {
+    border: none;
+}
+
+.custom-select {
+    position: relative;
+    display: inline;
+  }
+

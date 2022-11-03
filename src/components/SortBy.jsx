@@ -43,16 +43,20 @@ const handleOrder = (event) => {
 return (
     <>
   <form onSubmit={handleSubmit} className="sort-btns">
+    <div className="custom-select">
   <select className="options" name="sortBy" onChange={handleSortBy}>
     <option value='created_at'>Date</option>
 
     <option value='comment_count'>Comment Count</option>
     <option value='votes'>Votes</option>
   </select>
+  </div>
+  <div className="custom-select">
   <select className="options" name="order" onChange={handleOrder}>
     <option value="DESC">Descending</option>
     <option value="ASC">Ascending</option>
   </select>
+  </div>
   <button className="options button">SORT</button>
 </form>
 </>
