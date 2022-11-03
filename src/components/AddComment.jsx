@@ -31,7 +31,7 @@ function AddComment({ article_id}) {
     <div className="comment-box">
     <button onClick={onClick}> add comment</button>
     {showCommentBox && (
-    <form onSubmit={HandleAddComment}>
+    <form onSubmit={HandleAddComment} className='comment-box'>
     <input
       id="comment-body"
       type="text"

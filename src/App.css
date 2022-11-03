@@ -307,6 +307,14 @@ a.article-link {
     font-size: 14px;
 }
 
+form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+
 .comment-box {
  display: flex;
  flex-direction: column;
@@ -331,12 +339,6 @@ height: 150px;
 font-size: 16pt;
 }
 
-form {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 20px;
-}
 
 .comments-header {
     align-self: flex-start;
@@ -450,6 +452,33 @@ select {
 .sort-header{
     flex-direction: column;
     gap:30px;
+    margin: 0;
+}
+
+.article-container,
+.collections {
+    max-width: 100vw;
+}
+
+.App {
+    max-width: 100vw;
+}
+
+.article-card {
+    width: 90vw;
+}
+
+.collection-title {
+    margin-top: 10px;
+}
+
+.welcome {
+    margin-bottom: 40px;
+}
+
+.home-header {
+    width: 80vw;
+    text-align: center;
 }
 
 

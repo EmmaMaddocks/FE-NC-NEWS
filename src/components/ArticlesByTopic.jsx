@@ -20,7 +20,7 @@ function ArticlesByTopic({ articles, setArticles }) {
     <>
 
       <div className="sort-header">
-        <h3>//{topic}</h3>
+      <h3 className="collection-title">{topic}</h3>
         <SortBy setArticles={setArticles} articles={articles} />
         </div>
         <div className="article-container">
