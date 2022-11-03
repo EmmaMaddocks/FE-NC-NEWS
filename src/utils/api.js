@@ -42,10 +42,15 @@ const api = axios.create({
 
     };
 
-        
-
-
       const formatDate = date => {
         return new Date(date).toLocaleString('en-US');
       };
       export default formatDate;
+
+
+      export const deleteComment = (comment_id) => {
+        return axios.delete(`${BASE_URL}/comments/${comment_id}`).catch((err) => {
+            console.log(err);
+          });
+        };
+      

@@ -3,10 +3,12 @@ import { useState, useEffect } from 'react'
 import HandleCommentVotes from './CommentVotes';
 import AddComment from './AddComment';
 import formatDate from '../utils/api';
+import DeleteComment from './DeleteComment';
+import DeleteCommentByUser from './DeleteComment';
 
 
 
-const Comments = ({article_id}) => {
+const Comments = ({article_id, loggedInUser}) => {
 
     const [comments, setComments] = useState()
     const [isLoading, setIsLoading] = useState(true);
@@ -39,6 +41,7 @@ const Comments = ({article_id}) => {
             <p>{comment.body}</p>
 
 <HandleCommentVotes comment={comment}/>
+{loggedInUser === comment.author ? <DeleteCommentByUser id={comment.comment_id} comments={comments} setComments={setComments}/> : null}
           </li>
 
         );

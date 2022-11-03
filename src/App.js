@@ -17,6 +17,8 @@ function App() {
   const [order, setOrderBy] = useState("");
   const [sort_by, setSortBy] = useState("");
 
+  const loggedInUser = "jessjelly";
+
 
   return (
     <BrowserRouter>
@@ -28,7 +30,7 @@ function App() {
     <Route path="/" element={<AllArticles setArticles={setArticles} articles={articles} isLoading={isLoading} setIsLoading={setIsLoading} order={order} setOrderBy={setOrderBy}/>} />
     <Route path="/topics" element={<AllTopics />} />
     <Route path="/topics/:topic" element={<ArticlesByTopic setArticles={setArticles} articles={articles} isLoading={isLoading} setIsLoading={setIsLoading} order={order} setOrderBy={setOrderBy}/>} />
-    <Route path="/articles/:article_id" element={<FullArticle />} />
+    <Route path="/articles/:article_id" element={<FullArticle loggedInUser={loggedInUser}/>} />
     </Routes>
 
     </div>

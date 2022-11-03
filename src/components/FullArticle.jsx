@@ -6,7 +6,7 @@ import Comments from "./Comments";
 import formatDate from "../utils/api";
 import AddComment from "./AddComment";
 
-const FullArticle = () => {
+const FullArticle = ({loggedInUser}) => {
   const [isLoading, setIsLoading] = useState(true);
   const [article, setArticle] = useState([]);
   const { article_id } = useParams();
@@ -36,7 +36,7 @@ const FullArticle = () => {
       <HandleVotes article={article}/>
 </div>
     </div>
-    <Comments article_id={article_id}/>
+    <Comments article_id={article_id} loggedInUser={loggedInUser}/>
     </>
 
   );
