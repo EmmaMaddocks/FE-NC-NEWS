@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { useState } from "react";
 import * as api from '../utils/api'
 import Article from "./Article";
+import Loading from "./Loading";
+import SmallArticleCard from "./SmallArticleCard";
 
 function HighestVotedArticles() {
   const [isLoading, setIsLoading] = useState(true);
@@ -21,7 +23,7 @@ const order = 'DESC'
       });
   }, [setHighestVoted]);
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <Loading/>
 
 
 
@@ -29,8 +31,8 @@ const order = 'DESC'
  <>
        <h3 className="collection-title">Highest Voted:</h3>
        <div className="collection-container">
-        {highestVoted.slice(0, 2).map((article) => {
-          return <Article key={article.article_id} article={article}/>;
+        {highestVoted.slice(0, 4).map((article) => {
+          return <SmallArticleCard key={article.article_id} article={article}/>;
         })}
     </div>
     </>

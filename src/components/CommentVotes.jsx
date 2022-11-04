@@ -10,22 +10,28 @@ function HandleCommentVotes({comment}) {
 
     const [err, setErr] = useState(null);
     const [voteIncrement, setVotes] = useState(0);
+    const [voteUp, setVoteUp] = useState(false)
+    const [voteDown, setVoteDown] = useState(false)
 
 const HandleInc = () => {
   setVotes((currentVotes)=>(currentVotes+ 1))      
     api.patchVotes(comment_id, 1)
+    setVoteUp(true)
+    setVoteDown(false)
     }
 
     const HandleDec = () => {
       setVotes((currentVotes)=>(currentVotes- 1))      
       api.patchVotes(comment_id, -1)
+      setVoteUp(false)
+      setVoteDown(true)
       }
 
 return (
   <>
     <p>Votes: {votes + voteIncrement}</p>
-    <BsHandThumbsUp color="black" size={16} onClick={HandleInc}/>
-    <BsHandThumbsDown color="black" size={16} onClick={HandleDec}/>
+    <BsHandThumbsUp color={voteUp ? "rgb(3, 169, 152)" : "black" } size={16} onClick={HandleInc}/>
+    <BsHandThumbsDown color={voteDown ? "rgb(3, 169, 152)" : "black" } size={16} onClick={HandleDec}/>
     </>
 )
     }

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Loading from "./Loading";
 
 
 import Article from "./Article";
@@ -16,12 +17,15 @@ function ArticlesByTopic({ articles, setArticles }) {
       .then((res) => res.json())
       .then((articles) => {
         setArticles(articles);
+        setIsLoading(false);
       })
       .catch((error) => {
         setError(error);
         setIsLoading(false);
       });
   }, []);
+
+if (isLoading) return <Loading/>
 
   return (
     <>

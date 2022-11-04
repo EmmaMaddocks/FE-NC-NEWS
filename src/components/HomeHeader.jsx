@@ -13,6 +13,7 @@ function HomeHeader({loggedInUser}) {
 
     </div>
     <div className="collections">
+        
     <RecentArticles/>
     <HighestVotedArticles/>
     <MostCommentedArticles/>

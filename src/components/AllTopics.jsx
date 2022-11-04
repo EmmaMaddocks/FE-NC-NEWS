@@ -1,8 +1,9 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import Topic from "./Topic";
+import Loading from "./Loading";
 
-function AllTopics({ loggedInUser }) {
+function AllTopics() {
   const [isLoading, setIsLoading] = useState(true);
   const [topics, setTopics] = useState([]);
   const [error, setError] = useState(null);
@@ -21,7 +22,8 @@ function AllTopics({ loggedInUser }) {
       });
   }, [setTopics]);
 
-  if (isLoading) return <p>Loading...</p>;
+
+  if (isLoading) return <Loading />;
 
   return (
     <>

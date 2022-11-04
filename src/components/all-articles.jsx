@@ -3,6 +3,8 @@ import { useState } from "react";
 import Article from "./Article";
 import * as api from "../utils/api";
 import SortBy from "./SortBy";
+import Loading from "./Loading";
+
 
 function AllArticles() {
   const [articles, setArticles] = useState([]);
@@ -24,7 +26,7 @@ function AllArticles() {
       });
   }, []);
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <Loading />;
 
   return (
     <>
