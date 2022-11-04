@@ -1,11 +1,15 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useState } from "react";
+import Loading from "./Loading";
+
 
 import Article from "./Article";
 import SortBy from "./SortBy";
 
 function ArticlesByTopic({ articles, setArticles }) {
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
   const { topic } = useParams();
 
   useEffect(() => {
@@ -13,8 +17,15 @@ function ArticlesByTopic({ articles, setArticles }) {
       .then((res) => res.json())
       .then((articles) => {
         setArticles(articles);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        setError(error);
+        setIsLoading(false);
       });
   }, []);
+
+if (isLoading) return <Loading/>
 
   return (
     <>

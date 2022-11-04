@@ -5,6 +5,7 @@ export const useComments = (article_id) => {
 
 const [comments, setComments] = useState()
 const [isLoading, setIsLoading] = useState(true);
+const [error, setError] = useState(null)
 
 useEffect(() => {
     setIsLoading(true)
@@ -12,8 +13,12 @@ useEffect(() => {
     .then((data) => {
      setComments(data)
      setIsLoading(false)
+     setError(null)
+    }).catch((error) => {
+        setError(error)
+        setIsLoading(false)
     })
-}, [])
+    }, [])
 
 const reFetchData = (() => {
     setIsLoading(true)
@@ -21,9 +26,13 @@ const reFetchData = (() => {
     .then((data) => {
      setComments(data)
      setIsLoading(false)
+     setError(null)
+    }).catch((error) => {
+        setError(error)
+        setIsLoading(false)
     })
 }, [setComments])
 
 
-return { setComments, comments, isLoading, reFetchData }
+return { setComments, comments, isLoading, reFetchData, error }
 }
