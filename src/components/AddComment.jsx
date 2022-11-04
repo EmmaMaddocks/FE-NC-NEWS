@@ -35,7 +35,7 @@ function AddComment({ article_id}) {
 
   return (
     <div className="comment-box">
-    <button onClick={onClick}> add comment</button>
+    <button onClick={onClick} class='comment-btn'><span> add comment</span></button>
     {showCommentBox && (
     <form onSubmit={HandleAddComment} className='comment-box'>
     <input
@@ -45,7 +45,7 @@ function AddComment({ article_id}) {
       onChange={handleChange}
       required
     />
-    <button type="submit" className="submit-btn">submit comment</button>
+    <button type="submit" className="comment-btn"><span>submit comment</span></button>
     {hasError ? <p>{hasError}</p> : null }
   </form>
       )}
