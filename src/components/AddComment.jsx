@@ -5,6 +5,7 @@ import * as api from "../utils/api";
 function AddComment({ article_id}) {
   const [inputValue, setInputValue] = useState("");
   const [showCommentBox, setCommentBox] = useState(false)
+  const [hasError, setError] = useState(false)
 
   const loggedInUser = "jessjelly";
 
@@ -21,7 +22,12 @@ function AddComment({ article_id}) {
       votes: 0,
       created_at: "22/11/11",
     };
-    api.postComment(inputValue, loggedInUser, article_id);
+    try {
+    api.postComment(inputValue, loggedInUser, article_id)
+  } catch(error) {
+    console.log(error)
+    setError(true);
+  }
     setInputValue("");
   };
 
@@ -37,8 +43,10 @@ function AddComment({ article_id}) {
       type="text"
       value={inputValue}
       onChange={handleChange}
+      required
     />
     <button type="submit" className="submit-btn">submit comment</button>
+    {hasError ? <p>{hasError}</p> : null }
   </form>
       )}
       </div>

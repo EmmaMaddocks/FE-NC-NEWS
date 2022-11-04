@@ -2,9 +2,10 @@ import { useEffect } from "react";
 import { useState } from "react";
 import Topic from "./Topic";
 
-function AllTopics({loggedInUser}) {
+function AllTopics({ loggedInUser }) {
   const [isLoading, setIsLoading] = useState(true);
   const [topics, setTopics] = useState([]);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     setIsLoading(true);
@@ -13,20 +14,24 @@ function AllTopics({loggedInUser}) {
       .then((response) => {
         setTopics(response);
         setIsLoading(false);
+      })
+      .catch((error) => {
+        setError(error);
+        setIsLoading(false);
       });
   }, [setTopics]);
 
   if (isLoading) return <p>Loading...</p>;
 
   return (
- <>
-    <div className="topic-container">
-      <div className="topic-list">
-        {topics.map((topic) => {
-          return <Topic key={topic.slug} topic={topic} />;
-        })}
+    <>
+      <div className="topic-container">
+        <div className="topic-list">
+          {topics.map((topic) => {
+            return <Topic key={topic.slug} topic={topic} />;
+          })}
+        </div>
       </div>
-    </div>
     </>
   );
 }

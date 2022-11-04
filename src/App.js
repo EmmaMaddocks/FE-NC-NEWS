@@ -10,6 +10,7 @@ import ArticlesByTopic from './components/ArticlesByTopic';
 import FullArticle from './components/FullArticle';
 import Footer from './components/Footer';
 import HomeHeader from './components/HomeHeader';
+import ErrorPage from './components/ErrorPage';
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
     <Route path="/topics" element={<AllTopics />} />
     <Route path="/topics/:topic" element={<ArticlesByTopic setArticles={setArticles} articles={articles} isLoading={isLoading} setIsLoading={setIsLoading} order={order} setOrderBy={setOrderBy}/>} />
     <Route path="/articles/:article_id" element={<FullArticle loggedInUser={loggedInUser}/>} />
+    <Route path="*" element={ErrorPage} />
     </Routes>
 <Footer/>
     </div>

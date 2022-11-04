@@ -9,7 +9,10 @@ import { BsChatQuote } from "react-icons/bs";
 const FullArticle = ({loggedInUser}) => {
   const [isLoading, setIsLoading] = useState(true);
   const [article, setArticle] = useState([]);
+  const [error, setError] = useState(null);
+
   const { article_id } = useParams();
+  
 
   useEffect(() => {
     setIsLoading(true);
@@ -17,6 +20,10 @@ const FullArticle = ({loggedInUser}) => {
       .then((res) => res.json())
       .then((response) => {
         setArticle(response);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        setError(error);
         setIsLoading(false);
       });
   }, [setArticle]);
