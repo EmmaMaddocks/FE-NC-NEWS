@@ -6,7 +6,7 @@ function Nav() {
     <div className="nav-bar">
       <nav>
         <Link to="/" className="nav-link">
-        <BsHouseDoorFill color="black" size={24}/>
+        <BsHouseDoorFill color="white" size={24}/>
         </Link>
         <Link to="/articles" className="nav-link">
           All articles

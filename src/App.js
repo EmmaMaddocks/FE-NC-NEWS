@@ -24,8 +24,8 @@ function App() {
   return (
     <BrowserRouter>
     <div className="App">
-    <Title/>
     <Nav/>
+    <Title/>
     <Routes>
     <Route path="/articles" element={<AllArticles setArticles={setArticles} articles={articles} isLoading={isLoading} setIsLoading={setIsLoading} order={order} setOrderBy={setOrderBy}/>} />
 
