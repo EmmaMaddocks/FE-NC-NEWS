@@ -154,6 +154,7 @@ gap: 10px;
 
 .topic-container {
     width: 80vw;
+
 }
 
 img {
@@ -419,7 +420,7 @@ select {
     justify-content: space-between;
     align-items: center;
     padding: 10px 30px 10px 40px;
-    position: relative;
+    position: fixed;
     bottom: 0;
     width: 100%;
   
