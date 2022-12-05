@@ -1,7 +1,7 @@
 import axios from "axios";
-const BASE_URL = "https://em-nc-news.herokuapp.com/api";
+const BASE_URL = "https://fair-blue-ladybug-wear.cyclic.app/api";
 const api = axios.create({
-    baseURL: "https://em-nc-news.herokuapp.com/api",
+    baseURL: "https://fair-blue-ladybug-wear.cyclic.app/api",
   });
 
     export const patchVotes = async (article_id, val) => {
