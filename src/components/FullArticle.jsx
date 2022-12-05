@@ -16,7 +16,7 @@ const FullArticle = ({loggedInUser}) => {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch(`https://em-nc-news.herokuapp.com/api/articles/${article_id}`)
+    fetch(`https://fair-blue-ladybug-wear.cyclic.app/api/articles/${article_id}`)
       .then((res) => res.json())
       .then((response) => {
         setArticle(response);

@@ -13,7 +13,7 @@ function ArticlesByTopic({ articles, setArticles }) {
   const { topic } = useParams();
 
   useEffect(() => {
-    fetch(`https://em-nc-news.herokuapp.com/api/articles?topic=${topic}`)
+    fetch(`https://fair-blue-ladybug-wear.cyclic.app/api/articles?topic=${topic}`)
       .then((res) => res.json())
       .then((articles) => {
         setArticles(articles);

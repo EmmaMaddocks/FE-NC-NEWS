@@ -10,7 +10,7 @@ function AllTopics() {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch("https://em-nc-news.herokuapp.com/api/topics")
+    fetch("https://fair-blue-ladybug-wear.cyclic.app/api/topics")
       .then((res) => res.json())
       .then((response) => {
         setTopics(response);
