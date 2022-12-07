@@ -29,6 +29,17 @@ const api = axios.create({
         })
       }
 
+      export const postArticle = (title, topic, loggedInUser, body) => {
+        return axios.post(`${BASE_URL}/articles/`, {
+          title: title,
+          topic: topic,
+          author: loggedInUser,
+          body: body,
+        }).then(({ data }) => {
+          return data
+        })
+      }
+
       export const getArticles = (sort_by, order, topic) => {
         let path = `/articles`
         if (sort_by) path += `?sort_by=${sort_by}`;

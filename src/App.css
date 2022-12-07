@@ -192,13 +192,13 @@ img {
     right: 0;
     height: 100%;
     width: 100%;
-    opacity: 0;
+    opacity:1;
     transition: .5s ease;
-    background-color: rgb(3, 169, 152);  
+    background-color: none;  
   }
   
   .topic-card:hover .topic-details {
-    opacity: 1;
+    background-color: rgb(3, 169, 152);
   }
   
   h4 {
@@ -342,6 +342,30 @@ form {
  align-items: center;
 }
 
+.article-box {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+ }
+
+ .title-input,
+ .topic-input {
+  height: 40px;
+ }
+
+ .topic-input {
+  width: 60vw;
+max-width: 800px;
+font-size: 14pt;
+font-family: 'Montserrat', sans-serif;
+border: 1px solid rgb(3, 169, 152);
+padding-left: 10px;
+padding-right: 10px;
+
+}
+
+
 *:focus {
     outline: none;
 }
@@ -357,6 +381,8 @@ width: 60vw;
 max-width: 800px;
 height: 150px;
 font-size: 16pt;
+font-family: 'Montserrat', sans-serif;
+padding: 15px;
 }
 
 
@@ -657,4 +683,15 @@ select {
   }
   .comment-btn span:hover:after {
     width: 100%;
+  }
+
+.article-btn {
+  background:  rgb(3, 169, 152);;
+  width: 50px;
+  height: 50px;
+  font-size: 22pt;
+  line-height: 42px;
+  padding: 0;
+  border: none;
+  color: white;  
   }

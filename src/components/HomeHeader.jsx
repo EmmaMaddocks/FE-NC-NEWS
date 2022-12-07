@@ -1,3 +1,4 @@
+import AddArticle from "./AddArticle"
 import HighestVotedArticles from "./HighestVotedArticles"
 import MostCommentedArticles from "./MostCommentedArticles"
 import RecentArticles from "./RecentArticles"
@@ -12,8 +13,9 @@ function HomeHeader({loggedInUser}) {
         {loggedInUser ? <h3>You are currently logged in as {loggedInUser}</h3> : null}
 
     </div>
+    <AddArticle/>
     <div className="collections">
-        
+    
     <RecentArticles/>
     <HighestVotedArticles/>
     <MostCommentedArticles/>
