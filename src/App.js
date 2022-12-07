@@ -25,7 +25,6 @@ function App() {
     <BrowserRouter>
     <div className="App">
     <Nav/>
-    <Title/>
     <Routes>
     <Route path="/articles" element={<AllArticles setArticles={setArticles} articles={articles} isLoading={isLoading} setIsLoading={setIsLoading} order={order} setOrderBy={setOrderBy}/>} />
 

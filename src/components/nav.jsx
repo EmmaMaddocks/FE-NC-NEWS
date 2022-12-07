@@ -4,10 +4,12 @@ import { BsHouseDoorFill } from "react-icons/bs";
 function Nav() {
   return (
     <div className="nav-bar">
-      <nav>
-        <Link to="/" className="nav-link">
-        <BsHouseDoorFill color="white" size={24}/>
+       <Link to="/" className="nav-link">
+        {/* <BsHouseDoorFill color="white" size={24}/> */}
+        <h1>NC-NEWS</h1>
         </Link>
+      <nav>
+ 
         <Link to="/articles" className="nav-link">
           All articles
         </Link>
@@ -15,7 +17,7 @@ function Nav() {
           Topics
         </Link>
       </nav>
-      <div className="separator"></div>
+   
     </div>
   );
 }
