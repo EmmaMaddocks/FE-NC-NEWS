@@ -7,11 +7,18 @@ import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
 import { AirlineSeatIndividualSuiteSharp } from "@mui/icons-material";
+import Article from "./Article"
 
-const Profile = ({ loggedInUser }) => {
+const Profile = ({ loggedInUser, articles }) => {
   const [error, setError] = useState(null);
   const [profile, setProfile] = useState('');
 
+  const userArticles = articles.filter(getArticles);
+
+function getArticles(loggedInUser) {
+    console.log(articles)
+    return articles.author === loggedInUser;
+  }
 
   useEffect(() => {
     fetch(`https://fair-blue-ladybug-wear.cyclic.app/api/users/${loggedInUser}`)
@@ -24,8 +31,6 @@ const Profile = ({ loggedInUser }) => {
 
       });
   }, []);
-
-
 
   return (
 
@@ -58,8 +63,13 @@ Hello {profile.name}!
                      </>
           }
         />
-
 </Box>
+<div className="article-container">
+          {userArticles.map((article) => {
+            return <Article key={article.article_id} article={article} />;
+          })}
+
+      </div>
 </>
 )
 };

@@ -27,7 +27,7 @@ function ArticlesByTopic({ articles, setArticles }) {
         setError(error);
         setIsLoading(false);
       });
-  }, [articles]);
+  }, [order, sort_by]);
 
 if (isLoading) return <Loading/>
 
