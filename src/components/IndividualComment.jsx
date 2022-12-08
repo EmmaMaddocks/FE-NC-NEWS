@@ -20,17 +20,18 @@ const IndividualComment = ({ comments, comment, loggedInUser, article_id }) => {
 	return (
 		<>
 			<ListItem alignItems="flex-start" key={comment.comment_id}>
+            <ListItemAvatar>
 
-				
                 <LetteredAvatar className='avatar' name={comment.author} options={{  
-  
-  size: 50, 
+  size: 40, 
   twoLetter: true,
   shape: 'round',
   bgColor: 'rgb(3, 169, 152)', 
   tooltip: false, 
   imgClass: 'avatar'
 }}/>				
+        </ListItemAvatar>
+
 				<ListItemText
 					primary={formatDate(comment.created_at)}
 					secondary={

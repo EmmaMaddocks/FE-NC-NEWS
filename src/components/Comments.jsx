@@ -7,13 +7,8 @@ import DeleteCommentByUser from "./DeleteComment";
 import { useComments } from "../hooks/useComments";
 import LetteredAvatar from "lettered-avatar";
 import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import Divider from '@mui/material/Divider';
-import ListItemText from '@mui/material/ListItemText';
-import ListItemAvatar from '@mui/material/ListItemAvatar';
-import Avatar from '@mui/material/Avatar';
-import Typography from '@mui/material/Typography';
-import { AirlineSeatIndividualSuiteSharp } from "@mui/icons-material";
+import Box from '@mui/material/Box';
+
 import IndividualComment from "./IndividualComment";
 
 const Comments = ({ article_id, loggedInUser }) => {
@@ -42,9 +37,15 @@ const Comments = ({ article_id, loggedInUser }) => {
         comments={comments}
         setComments={setComments}
       />
+      <Box       sx={{
+        width: 300,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexDirection: 'column',
+        pt: 5,
+      }}>
         <h3 className="comments-header">Comments</h3>
-
-
         {comments.length === 0 ? <p>No comments to show</p> :  
 <List sx={{ width: '100%', maxWidth: 400, bgcolor: 'background.paper' }}>
       
@@ -56,6 +57,7 @@ const Comments = ({ article_id, loggedInUser }) => {
         })}
       </List>
       }
+      </Box>
     </>
   );
 };
