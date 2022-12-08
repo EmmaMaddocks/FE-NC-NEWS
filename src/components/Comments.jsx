@@ -38,7 +38,7 @@ const Comments = ({ article_id, loggedInUser }) => {
         setComments={setComments}
       />
       <Box       sx={{
-        width: 300,
+        width: '90%',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -47,7 +47,7 @@ const Comments = ({ article_id, loggedInUser }) => {
       }}>
         <h3 className="comments-header">Comments</h3>
         {comments.length === 0 ? <p>No comments to show</p> :  
-<List sx={{ width: '100%', maxWidth: 400, bgcolor: 'background.paper' }}>
+<List sx={{ bgcolor: 'background.paper' }}>
       
         {comments.map((comment) => {
 

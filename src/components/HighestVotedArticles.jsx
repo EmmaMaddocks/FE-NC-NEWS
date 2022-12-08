@@ -42,7 +42,7 @@ const order = 'DESC'
     borderRadius: 4
   }}
   >
-        {highestVoted.slice(0, 4).map((article) => {
+        {highestVoted.slice(0, 6).map((article) => {
           return <SmallArticleCard key={article.article_id} article={article}/>;
         })}
     </Box>
