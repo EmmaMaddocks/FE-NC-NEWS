@@ -57,48 +57,10 @@ function Nav(loggedInUser) {
               textDecoration: 'none',
             }}
           >
-            Student Central
+            //NCNEWS
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-            {/* <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton> */}
-            {/* <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: 'block', md: 'none' },
-              }}
-            >
-
-                <MenuItem key='' onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">Articles</Typography>
-                </MenuItem>
-                <MenuItem key='' onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">Topics</Typography>
-                </MenuItem>
-     
-            </Menu> */}
-          </Box>
+  
           <Typography
             variant="h5"
             noWrap
@@ -115,18 +77,10 @@ function Nav(loggedInUser) {
               textDecoration: 'none',
             }}
           >
-            Student Central
+            //NCNEWS
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {/* {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {page}
-              </Button>
-            ))} */}
+
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
