@@ -10,7 +10,7 @@ import { AirlineSeatIndividualSuiteSharp } from "@mui/icons-material";
 
 const Profile = ({ loggedInUser }) => {
   const [error, setError] = useState(null);
-  const [profile, setProfile] = useState(null);
+  const [profile, setProfile] = useState('');
 
 
   useEffect(() => {
@@ -18,12 +18,12 @@ const Profile = ({ loggedInUser }) => {
       .then((res) => res.json())
       .then((response) => {
         setProfile(response[0]);
-        console.log(profile)
+        console.log(response)
       })
       .catch((error) => {
 
       });
-  });
+  }, []);
 
 
 
@@ -38,9 +38,10 @@ const Profile = ({ loggedInUser }) => {
         alignItems: 'center',
         justifyContent: 'center',
         flexDirection: 'column',
+        pt: 10,
       }}
     >
-          <Avatar alt="Remy Sharp"  />
+          <Avatar alt="Remy Sharp" src={profile.avatar_url} />
 <ListItemText
           primary=      ''
           secondary={
@@ -48,7 +49,7 @@ const Profile = ({ loggedInUser }) => {
               <Typography
                 sx={{ display: 'inline' }}
                 component="span"
-                variant="body2"
+                variant="h5"
                 color="text.primary"
               >
 Hello {profile.name}!

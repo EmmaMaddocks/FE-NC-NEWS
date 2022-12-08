@@ -65,3 +65,9 @@ const api = axios.create({
           });
         };
       
+        export const deleteArticle = (article_id) => {
+          return axios.delete(`${BASE_URL}/articles/${article_id}`).catch((err) => {
+              console.log(err);
+            });
+          };
+        
