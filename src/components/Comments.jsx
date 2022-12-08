@@ -44,7 +44,10 @@ const Comments = ({ article_id, loggedInUser }) => {
       />
         <h3 className="comments-header">Comments</h3>
 
+
+        {comments.length === 0 ? <p>No comments to show</p> :  
 <List sx={{ width: '100%', maxWidth: 400, bgcolor: 'background.paper' }}>
+      
         {comments.map((comment) => {
 
           return (
@@ -52,6 +55,7 @@ const Comments = ({ article_id, loggedInUser }) => {
           );
         })}
       </List>
+      }
     </>
   );
 };
