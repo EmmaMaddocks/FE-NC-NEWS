@@ -8,29 +8,32 @@ import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
 import { AirlineSeatIndividualSuiteSharp } from "@mui/icons-material";
 import Article from "./Article"
+import UserArticle from "./UserArticle";
+import { useArticles } from "../hooks/useArticles";
 
-const Profile = ({ loggedInUser, articles }) => {
+
+const Profile = ({ loggedInUser }) => {
+    const { articles, isLoading, setIsLoading, setArticles } = useArticles();
+
   const [error, setError] = useState(null);
   const [profile, setProfile] = useState('');
+  
 
-  const userArticles = articles.filter(getArticles);
-
-function getArticles(loggedInUser) {
-    console.log(articles)
-    return articles.author === loggedInUser;
-  }
 
   useEffect(() => {
-    fetch(`https://fair-blue-ladybug-wear.cyclic.app/api/users/${loggedInUser}`)
-      .then((res) => res.json())
-      .then((response) => {
-        setProfile(response[0]);
-        console.log(response)
+    api
+      .getArticles()
+      .then((data) => {
+        setArticles(data);
       })
       .catch((error) => {
-
+        setError(error);
+        setIsLoading(false);
       });
-  }, []);
+  }, [articles]);
+
+  if (isLoading) return <p>Loading...</p>;
+
 
   return (
 
@@ -38,15 +41,15 @@ function getArticles(loggedInUser) {
 <Box
       sx={{
         width: 300,
-        height: 300,
+
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         flexDirection: 'column',
         pt: 10,
       }}
-    >
-          <Avatar alt="Remy Sharp" src={profile.avatar_url} />
+    > 
+<Avatar alt="Remy Sharp" src="https://robincollettephotography.com/wp-content/uploads/sites/7154/2021/04/sacramento_headshot_photographer-1-1.jpg" />
 <ListItemText
           primary=      ''
           secondary={
@@ -57,19 +60,27 @@ function getArticles(loggedInUser) {
                 variant="h5"
                 color="text.primary"
               >
-Hello {profile.name}!
+Hello {loggedInUser}
               </Typography>
               
                      </>
           }
         />
 </Box>
-<div className="article-container">
-          {userArticles.map((article) => {
-            return <Article key={article.article_id} article={article} />;
+<Box       sx={{
+        width: 300,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexDirection: 'column',
+        pt: 5,
+      }}>
+<Typography variant="h5">Your articles</Typography>
+{articles.filter(article => article.author === loggedInUser).map(article => {
+    return <UserArticle key={article.article_id} article={article} />;
           })}
 
-      </div>
+</Box>
 </>
 )
 };
