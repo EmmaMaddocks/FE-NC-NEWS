@@ -29,7 +29,7 @@ const HandleInc = () => {
 
 return (
   <>
-   <p>Votes: {votes + voteIncrement}</p>
+   <p>{votes + voteIncrement}</p>
    <div className='votes'> 
     <BsHandThumbsUp         color={voteUp ? "rgb(3, 169, 152)" : "black" } size={20} onClick={HandleInc}/>
     <BsHandThumbsDown color={voteDown ? "rgb(3, 169, 152)" : "black" } size={20} onClick={HandleDec}/>

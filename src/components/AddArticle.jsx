@@ -48,12 +48,10 @@ function AddArticle() {
     setBody("");
   };
 
-  const onClick = (event) => setArticleBox(current => !current)
 
   return (
     <div className="article-box">
-    <button onClick={onClick} class='article-btn'> { showArticleBox ? <span>-</span> : <span>+</span> }</button>
-    {showArticleBox && (
+
     <form onSubmit={HandleAddArticle} className='article-box'>
         <select className="topic-input" name="topic" onChange={handleTopic} placeholder='topic'>
 <option value="" disabled selected>Select article topic</option>
@@ -83,7 +81,7 @@ function AddArticle() {
     <button type="submit" className="comment-btn"><span>submit article</span></button>
     {hasError ? <p>{hasError}</p> : null }
   </form>
-      )}
+
       </div>
     );
 }

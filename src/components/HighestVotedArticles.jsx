@@ -4,6 +4,8 @@ import * as api from '../utils/api'
 import Article from "./Article";
 import Loading from "./Loading";
 import SmallArticleCard from "./SmallArticleCard";
+import Box from '@mui/material/Box';
+
 
 function HighestVotedArticles() {
   const [isLoading, setIsLoading] = useState(true);
@@ -30,11 +32,21 @@ const order = 'DESC'
   return (
  <>
        <h3 className="collection-title">Highest Voted:</h3>
-       <div className="collection-container">
+       <Box sx={{
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    alignItems: 'stretch',
+    alignContent: 'stretch',
+    p: 1,
+    m: 1,
+    borderRadius: 4
+  }}
+  >
         {highestVoted.slice(0, 4).map((article) => {
           return <SmallArticleCard key={article.article_id} article={article}/>;
         })}
-    </div>
+    </Box>
     </>
   );
 }

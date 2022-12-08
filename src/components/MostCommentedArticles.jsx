@@ -3,6 +3,9 @@ import { useState } from "react";
 import * as api from '../utils/api'
 import Loading from "./Loading";
 import SmallArticleCard from "./SmallArticleCard";
+import Grid from '@mui/material/Grid'; // Grid version 1
+import Box from '@mui/material/Box';
+
 
 
 function MostCommentedArticles() {
@@ -29,13 +32,26 @@ const order = 'DESC'
 
 
   return (
- <>
-       <h3 className="collection-title">Most Commented:</h3>
-       <div className="collection-container">
+    <>
+    <h3 className="collection-title">Most Commented:</h3>
+
+  <Box sx={{
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    alignItems: 'stretch',
+    alignContent: 'stretch',
+    p: 1,
+    m: 1,
+    borderRadius: 4
+  }}
+  >
+     
         {mostCommented.slice(0, 4).map((article) => {
           return <SmallArticleCard key={article.article_id} article={article}/>;
         })}
-    </div>
+ 
+    </Box>
     </>
   );
 }

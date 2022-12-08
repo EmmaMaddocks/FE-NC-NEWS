@@ -2,12 +2,15 @@
 import { useState } from "react"
 import * as api from '../utils/api'
 import {  BsChatQuote } from "react-icons/bs";
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormHelperText from '@mui/material/FormHelperText';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 
 
-function SortBy({articles, setArticles}) {
+function SortBy({articles, setArticles, topic, setOrderBy, setSortBy, order, sort_by}) {
 
-    const [order, setOrderBy] = useState("");
-    const [sort_by, setSortBy] = useState("");
 
 
 const handleSortBy = (event) => {
@@ -25,40 +28,57 @@ const handleOrder = (event) => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    api.getArticles(sort_by, order)
+    api.getArticles(sort_by, order, topic)
     .then((data)=>{
         setArticles(data);
     })
   }
 
-  const handleClick = (event) => {
-    event.preventDefault()
-    setSortBy('comment_count')
-    api.getArticles(sort_by, order)
-    .then((data)=>{
-        setArticles(data);
-    })
-  }
+
 
 return (
     <>
-  <form onSubmit={handleSubmit} className="sort-btns">
-    <div className="custom-select">
-  <select className="options" name="sortBy" onChange={handleSortBy}>
-    <option value='created_at'>Date</option>
 
-    <option value='comment_count'>Comment Count</option>
-    <option value='votes'>Votes</option>
-  </select>
-  </div>
-  <div className="custom-select">
-  <select className="options" name="order" onChange={handleOrder}>
-    <option value="DESC">Descending</option>
-    <option value="ASC">Ascending</option>
-  </select>
-  </div>
-  <button className="options button">SORT</button>
-</form>
+
+<form>
+    <FormControl sx={{ m: 1, minWidth: 120 }}>
+    <InputLabel id="sort_by">Sort by</InputLabel>
+
+        <Select
+          value={sort_by}
+          label="Sort By"
+          onChange={handleSortBy}
+          displayEmpty
+          inputProps={{ 'aria-label': 'Without label' }}
+        >
+
+          <MenuItem value='created_at'>Date</MenuItem>
+          <MenuItem value='comment_count'>Comment Count</MenuItem>
+          <MenuItem value='votes'>Votes</MenuItem>
+
+        </Select>
+      </FormControl>
+      
+  <FormControl sx={{ m: 1, minWidth: 120 }}>
+  <InputLabel id="order">Order</InputLabel>
+
+        <Select
+          value={order}
+          label="Order"
+          onChange={handleOrder}
+          displayEmpty
+          inputProps={{ 'aria-label': 'Without label' }}
+        >
+   
+          <MenuItem value="DESC">Descending</MenuItem>
+          <MenuItem value="ASC">Ascending</MenuItem>
+        </Select>
+      </FormControl>
+
+
+
+      </form>
+
 </>
 )
 }

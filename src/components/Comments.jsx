@@ -6,10 +6,20 @@ import formatDate from "../utils/api";
 import DeleteCommentByUser from "./DeleteComment";
 import { useComments } from "../hooks/useComments";
 import LetteredAvatar from "lettered-avatar";
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import Divider from '@mui/material/Divider';
+import ListItemText from '@mui/material/ListItemText';
+import ListItemAvatar from '@mui/material/ListItemAvatar';
+import Avatar from '@mui/material/Avatar';
+import Typography from '@mui/material/Typography';
+import { AirlineSeatIndividualSuiteSharp } from "@mui/icons-material";
+import IndividualComment from "./IndividualComment";
 
 const Comments = ({ article_id, loggedInUser }) => {
   const { comments, isLoading, setIsLoading, setComments } = useComments(article_id);
   const [error, setError] = useState(null);
+  const [commentAvatar, setCommentAvatar] = useState(null);
 
   useEffect(() => {
     api
@@ -32,45 +42,16 @@ const Comments = ({ article_id, loggedInUser }) => {
         comments={comments}
         setComments={setComments}
       />
-
-      <div className="comments-list">
         <h3 className="comments-header">Comments</h3>
+
+<List sx={{ width: '100%', maxWidth: 400, bgcolor: 'background.paper' }}>
         {comments.map((comment) => {
+
           return (
-            <li key={comment.comment_id} className="comment-card">
-              <div className="comment-details">
-                <div className="avatar-container">
-                  <LetteredAvatar
-                    className="avatar"
-                    name={comment.author}
-                    options={{
-                      size: 60,
-                      twoLetter: true,
-                      shape: "round",
-                      bgColor: "rgb(3, 169, 152)",
-                      tooltip: true,
-                      imgClass: "avatar",
-                    }}
-                  />
-                  {comment.author}{" "}
-                </div>
-                {formatDate(comment.created_at)}
-              </div>
-              <p className="comment-body">{comment.body}</p>
-              <div className="vote">
-                <HandleCommentVotes comment={comment} />
-                {loggedInUser === comment.author ? (
-                  <DeleteCommentByUser
-                    id={comment.comment_id}
-                    article_id={article_id}
-                    comments={comments}
-                  />
-                ) : null}
-              </div>
-            </li>
+          <IndividualComment       comments={comments} article_id={article_id} comment={comment} loggedInUser={loggedInUser} />
           );
         })}
-      </div>
+      </List>
     </>
   );
 };

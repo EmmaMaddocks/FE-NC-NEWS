@@ -2,25 +2,23 @@ import AddArticle from "./AddArticle"
 import HighestVotedArticles from "./HighestVotedArticles"
 import MostCommentedArticles from "./MostCommentedArticles"
 import RecentArticles from "./RecentArticles"
+import BottomNav from "./BottomNav"
+import Box from '@mui/material/Box';
+
 
 function HomeHeader({loggedInUser}) {
     return (
-        <>
-    <div class='home-header'>
-        <h2>Welcome to NCNews!</h2>
-        <p class='welcome'>
-        Providing you with the latest news from the Northcoders community</p>
-        {loggedInUser ? <h3>You are currently logged in as {loggedInUser}</h3> : null}
 
-    </div>
+  <Box sx={{ flexGrow: 1 }}>
     <AddArticle/>
-    <div className="collections">
+    <Box sx={{ flexGrow: 1 }}>
     
     <RecentArticles/>
     <HighestVotedArticles/>
     <MostCommentedArticles/>
-    </div>
-    </>
+    </Box>
+        </Box>
+
     )
     }
     

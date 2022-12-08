@@ -11,6 +11,7 @@ import FullArticle from './components/FullArticle';
 import Footer from './components/Footer';
 import HomeHeader from './components/HomeHeader';
 import ErrorPage from './components/ErrorPage';
+import BottomNav from './components/BottomNav';
 
 
 function App() {
@@ -21,20 +22,22 @@ function App() {
   const [sort_by, setSortBy] = useState("");
   const [loggedInUser, setUser] = useState("jessjelly");
 
+
   return (
     <BrowserRouter>
     <div className="App">
-    <Nav/>
+    <Nav loggedInUser={loggedInUser} />
     <Routes>
     <Route path="/articles" element={<AllArticles setArticles={setArticles} articles={articles} isLoading={isLoading} setIsLoading={setIsLoading} order={order} setOrderBy={setOrderBy}/>} />
 
     <Route path="/" element={<HomeHeader loggedInUser={loggedInUser} />} />
     <Route path="/topics" element={<AllTopics />} />
     <Route path="/topics/:topic" element={<ArticlesByTopic setArticles={setArticles} articles={articles} isLoading={isLoading} setIsLoading={setIsLoading} order={order} setOrderBy={setOrderBy}/>} />
+ 
     <Route path="/articles/:article_id" element={<FullArticle loggedInUser={loggedInUser}/>} />
     <Route path="*" element={ErrorPage} />
     </Routes>
-<Footer/>
+<BottomNav/>
     </div>
     </BrowserRouter>
   );
