@@ -32,11 +32,7 @@ const Comments = ({ article_id, loggedInUser }) => {
 
   return (
     <>
-      <AddComment
-        article_id={article_id}
-        comments={comments}
-        setComments={setComments}
-      />
+
       <Box       sx={{
         width: '90%',
         display: 'flex',

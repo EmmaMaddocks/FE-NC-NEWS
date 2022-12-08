@@ -5,11 +5,34 @@ import HandleVotes from "./Votes";
 import Comments from "./Comments";
 import formatDate from "../utils/api";
 import { BsChatQuote } from "react-icons/bs";
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import AddArticle from './AddArticle';
+import HomeIcon from '@mui/icons-material/Home';
+import ArticleIcon from '@mui/icons-material/Article';
+import CreateIcon from '@mui/icons-material/Create';
+import FolderSpecialIcon from '@mui/icons-material/FolderSpecial';
+import Button from '@mui/material/Button';
+import AddComment from "./AddComment";
+
 
 const FullArticle = ({loggedInUser}) => {
   const [isLoading, setIsLoading] = useState(true);
   const [article, setArticle] = useState([]);
   const [error, setError] = useState(null);
+
+  const [open, setOpen] = useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   const { article_id } = useParams();
   
@@ -48,6 +71,24 @@ const FullArticle = ({loggedInUser}) => {
       </div>
 </div>
     </div>
+
+ 
+ <Button sx={{ borderRadius: '16px', color: 'white' }} onClick={handleClickOpen} size="small" variant="contained"  >
+ Add Comment 
+ </Button>
+
+    <Dialog open={open} onClose={handleClose}>
+  <DialogTitle>Add a comment</DialogTitle>
+  <DialogContent>
+<AddComment article_id={article_id} open={open} setOpen={setOpen}/>
+  </DialogContent>
+  <DialogActions>
+    <Button onClick={handleClose}>Close</Button>
+  </DialogActions>
+</Dialog>
+
+
+
     <Comments article_id={article_id} loggedInUser={loggedInUser}/>
     </>
 

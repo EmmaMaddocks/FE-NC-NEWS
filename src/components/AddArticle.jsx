@@ -12,7 +12,7 @@ import SendIcon from '@mui/icons-material/Send';
 
 
 
-function AddArticle() {
+function AddArticle({setOpen}) {
   const [title, setTitle] = useState("");
   const [topic, setTopic] = useState("");
   const [body, setBody] = useState("");
@@ -49,6 +49,7 @@ function AddArticle() {
     };
     try {
     api.postArticle(title, topic, loggedInUser, body)
+    setOpen(false)
   } catch(error) {
     console.log(error)
     setError(true);

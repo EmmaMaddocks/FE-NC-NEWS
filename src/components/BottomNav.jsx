@@ -66,7 +66,7 @@ export default function BottomNav() {
 <Dialog open={open} onClose={handleClose}>
   <DialogTitle>Whats on your mind?</DialogTitle>
   <DialogContent>
-<AddArticle/>
+<AddArticle open={open} setOpen={setOpen}/>
   </DialogContent>
   <DialogActions>
     <Button onClick={handleClose}>Close</Button>

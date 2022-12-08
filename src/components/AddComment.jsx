@@ -6,7 +6,7 @@ import TextField from '@mui/material/TextField';
 
 
 
-function AddComment({ article_id}) {
+function AddComment({ article_id, open, setOpen}) {
   const [inputValue, setInputValue] = useState("");
   const [showCommentBox, setCommentBox] = useState(false)
   const [hasError, setError] = useState(false)
@@ -17,6 +17,11 @@ function AddComment({ article_id}) {
     setInputValue(event.target.value);
   };
 
+
+
+
+
+  
   const HandleAddComment = (event) => {
     event.preventDefault();
 
@@ -28,6 +33,7 @@ function AddComment({ article_id}) {
     };
     try {
     api.postComment(inputValue, loggedInUser, article_id)
+    setOpen(false)
   } catch(error) {
     console.log(error)
     setError(true);
@@ -35,36 +41,69 @@ function AddComment({ article_id}) {
     setInputValue("");
   };
 
+
+
+
+
   const onClick = (event) => setCommentBox(current => !current)
 
   return (
-    <div className="comment-box">
 
-<Button sx={{ borderRadius: '16px', color: 'white' }} onClick={onClick} size="small" variant="contained"  >
-    Add Comment 
-  </Button>
 
-    {/* <Button sx={{ borderRadius: '16px' }} onClick={onClick} ><span> add comment</span></Button> */}
-    {showCommentBox && (
-    <form onSubmit={HandleAddComment} className='comment-box'>
+    <form onSubmit={HandleAddComment} className='article-box'>
+
+
 <TextField
-          id="comment-body"
+          id="comment"
+          label=""
           multiline
-          rows={2}
+          rows={4}
           value={inputValue}
           onChange={handleChange}
           required
-          sx={{ m: 1, minWidth:300 }}
         />
 
-
-<Button type="submit" sx={{ borderRadius: '16px', color: 'white' }} size="small" variant="contained"  >
-    Submit 
-  </Button>
-      {hasError ? <p>{hasError}</p> : null }
+<Button type='submit' variant="contained" >
+  Submit
+</Button>
+{hasError ? <p>{hasError}</p> : null }
   </form>
-      )}
-      </div>
+
+
+
+
+
+
+
+
+
+//     <div className="comment-box">
+
+// <Button sx={{ borderRadius: '16px', color: 'white' }} onClick={onClick} size="small" variant="contained"  >
+//     Add Comment 
+//   </Button>
+
+//     {/* <Button sx={{ borderRadius: '16px' }} onClick={onClick} ><span> add comment</span></Button> */}
+//     {showCommentBox && (
+//     <form onSubmit={HandleAddComment} className='comment-box'>
+// <TextField
+//           id="comment-body"
+//           multiline
+//           rows={2}
+//           value={inputValue}
+//           onChange={handleChange}
+//           required
+//           sx={{ m: 1, minWidth:300 }}
+//         />
+
+
+// <Button type="submit" sx={{ borderRadius: '16px', color: 'white' }} size="small" variant="contained"  >
+//     Submit 
+//   </Button>
+//       {hasError ? <p>{hasError}</p> : null }
+//   </form>
+//       )}
+//       </div>
     );
 }
 
