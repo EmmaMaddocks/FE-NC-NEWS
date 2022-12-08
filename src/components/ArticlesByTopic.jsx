@@ -20,13 +20,14 @@ function ArticlesByTopic({ articles, setArticles }) {
     api.getArticles(sort_by, order, topic)
       .then((articles) => {
         setArticles(articles);
+        console.log(topic)
         setIsLoading(false);
       })
       .catch((error) => {
         setError(error);
         setIsLoading(false);
       });
-  }, []);
+  }, [articles]);
 
 if (isLoading) return <Loading/>
 
