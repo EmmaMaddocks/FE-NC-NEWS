@@ -37,11 +37,11 @@ return (
 
    <IconButton aria-label="vote on article">
    
-    <ThumbUpIcon         color={voteUp ? "rgb(3, 169, 152)" : "black" } size={20} onClick={HandleInc}/>
+    <ThumbUpIcon         color={voteUp ? "primary" : "black" } size={20} onClick={HandleInc}/>
     </IconButton>
     <IconButton aria-label="vote on article">
 
-    <ThumbDownIcon color={voteDown ? "rgb(3, 169, 152)" : "black" } size={20} onClick={HandleDec}/>
+    <ThumbDownIcon color={voteDown ? "primary" : "black" } size={20} onClick={HandleDec}/>
     </IconButton>
     </Box>
     </>

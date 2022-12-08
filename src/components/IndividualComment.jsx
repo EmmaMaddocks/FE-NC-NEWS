@@ -64,22 +64,6 @@ const IndividualComment = ({ comments, comment, loggedInUser, article_id }) => {
 	);
 };
 
-{
-	/* 
-<p className="comment-body">{comment.body}</p>
-<div className="vote">
-  <HandleCommentVotes comment={comment} />
-  {loggedInUser === comment.author ? (
-    <DeleteCommentByUser
-      id={comment.comment_id}
-      article_id={article_id}
-      comments={comments}
-    />
-  ) : null}
-</div>
-</ListItem>
 
-); */
-}
 
 export default IndividualComment;
