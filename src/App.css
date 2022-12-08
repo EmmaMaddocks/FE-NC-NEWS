@@ -10,8 +10,8 @@ body {
     min-height: 100vh;
     margin: 0 auto;
     font-family: 'Montserrat', sans-serif;
-    background-color: #fff4de;
-    background-image: linear-gradient(291deg, #fff4de 29%, #40af9b 97%);
+    background-color: #40af9b;
+    background-image: linear-gradient(304deg, #40af9b 5%, #fff4de 60%);
     
     }
 
@@ -285,10 +285,10 @@ p {
 .sort-header{
 display: flex;
 flex-wrap: wrap;
-flex: row;
-align-items: flex-end;
+flex: column;
+align-items: center;
 justify-content: space-between;
-margin: 0px 40px 0px 40px;
+margin: 30px 40px 0px 40px;
 width: 70%;
 
 }
