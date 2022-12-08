@@ -40,8 +40,8 @@ function HomeHeader({loggedInUser}) {
       <TabContext value={value} >
         <Box sx={{ borderBottom: 1, borderColor: 'divider' }} >
           <TabList onChange={handleChange} aria-label="article tabs" centered>
-            <Tab label="Recent Articles" value="1" />
-            <Tab label="Highest Voted" value="2" />
+            <Tab label="Recent" value="1" />
+            <Tab label="Most Loved " value="2" />
             <Tab label="Most Commented" value="3" />
           </TabList>
         </Box>
