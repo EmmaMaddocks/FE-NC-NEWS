@@ -49,7 +49,7 @@ const Profile = ({ loggedInUser }) => {
         pt: 10,
       }}
     > 
-<Avatar alt="Remy Sharp" src="https://robincollettephotography.com/wp-content/uploads/sites/7154/2021/04/sacramento_headshot_photographer-1-1.jpg" />
+
 <ListItemText
           primary=      ''
           secondary={
@@ -57,10 +57,10 @@ const Profile = ({ loggedInUser }) => {
               <Typography
                 sx={{ display: 'inline' }}
                 component="span"
-                variant="h5"
+                variant="h4"
                 color="text.primary"
               >
-Hello {loggedInUser}
+Hello {loggedInUser}!
               </Typography>
               
                      </>

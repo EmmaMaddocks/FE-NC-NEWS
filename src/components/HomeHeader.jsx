@@ -10,6 +10,12 @@ function HomeHeader({loggedInUser}) {
     return (
 
   <Box sx={{ flexGrow: 1 }}>
+        {/* <Box sx={{ flexGrow: 1 }}>
+          <img src={`/images/news.jpeg`} />
+          </Box> */}
+
+          <Box component="img" src={`/images/news.jpeg`} sx={{ height: "200px", width: "100%" }}>
+            </Box> 
     <Box sx={{ flexGrow: 1 }}>
     <RecentArticles/>
     <HighestVotedArticles/>
