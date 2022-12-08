@@ -86,7 +86,7 @@ function Nav(loggedInUser) {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="User menu">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar   sx={{ width: 100, height: 100 }} src="https://robincollettephotography.com/wp-content/uploads/sites/7154/2021/04/sacramento_headshot_photographer-1-1.jpg" />
+                <Avatar   sx={{ width: 80, height: 80 }} src="https://robincollettephotography.com/wp-content/uploads/sites/7154/2021/04/sacramento_headshot_photographer-1-1.jpg" />
               </IconButton>
             </Tooltip>
             <Menu
