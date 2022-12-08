@@ -32,7 +32,6 @@ const order = 'DESC'
 
   return (
     <>
-    <h3 className="collection-title">Most Commented:</h3>
 
   <Box sx={{
     display: 'flex',

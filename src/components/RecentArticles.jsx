@@ -31,7 +31,6 @@ const order = 'DESC'
 
   return (
  <>
-       <h3 className="collection-title">Recent Articles:</h3>
        <Box sx={{
     display: 'flex',
     flexWrap: 'wrap',
