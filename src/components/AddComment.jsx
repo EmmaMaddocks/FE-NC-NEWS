@@ -1,5 +1,9 @@
 import { useState } from "react";
 import * as api from "../utils/api";
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+
+
 
 
 function AddComment({ article_id}) {
@@ -35,18 +39,29 @@ function AddComment({ article_id}) {
 
   return (
     <div className="comment-box">
-    <button onClick={onClick} class='comment-btn'><span> add comment</span></button>
+
+<Button sx={{ borderRadius: '16px', color: 'white' }} onClick={onClick} size="small" variant="contained"  >
+    Add Comment 
+  </Button>
+
+    {/* <Button sx={{ borderRadius: '16px' }} onClick={onClick} ><span> add comment</span></Button> */}
     {showCommentBox && (
     <form onSubmit={HandleAddComment} className='comment-box'>
-    <input
-      id="comment-body"
-      type="text"
-      value={inputValue}
-      onChange={handleChange}
-      required
-    />
-    <button type="submit" className="comment-btn"><span>submit comment</span></button>
-    {hasError ? <p>{hasError}</p> : null }
+<TextField
+          id="comment-body"
+          multiline
+          rows={2}
+          value={inputValue}
+          onChange={handleChange}
+          required
+          sx={{ m: 1, minWidth:300 }}
+        />
+
+
+<Button type="submit" sx={{ borderRadius: '16px', color: 'white' }} size="small" variant="contained"  >
+    Submit 
+  </Button>
+      {hasError ? <p>{hasError}</p> : null }
   </form>
       )}
       </div>

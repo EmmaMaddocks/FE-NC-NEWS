@@ -21,7 +21,10 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import AddArticle from './AddArticle';
-
+import HomeIcon from '@mui/icons-material/Home';
+import ArticleIcon from '@mui/icons-material/Article';
+import CreateIcon from '@mui/icons-material/Create';
+import FolderSpecialIcon from '@mui/icons-material/FolderSpecial';
 
 export default function BottomNav() {
   const [value, setValue] = React.useState(0);
@@ -51,10 +54,10 @@ export default function BottomNav() {
             setValue(newValue);
           }}
         >
-          <BottomNavigationAction label="All" icon={<RestoreIcon />} component={Link} to="/articles"/>
-          <BottomNavigationAction label="Topics" icon={<FavoriteIcon />} component={Link} to="/topics"/>
-          <BottomNavigationAction label="Post" icon={<ArchiveIcon />} onClick={handleClickOpen}/>
-          <BottomNavigationAction label="Football" icon={<ArchiveIcon />}component={Link} to="/topics/football" />
+          <BottomNavigationAction label="Home" icon={<HomeIcon />} component={Link} to="/"/>
+          <BottomNavigationAction label="All Articles" icon={<ArticleIcon />} component={Link} to="/articles"/>
+          <BottomNavigationAction label="Topics" icon={<FolderSpecialIcon />}component={Link} to="/topics" />
+          <BottomNavigationAction label="Post" icon={<CreateIcon />} onClick={handleClickOpen}/>
 
         </BottomNavigation>
       </Paper>
@@ -63,15 +66,7 @@ export default function BottomNav() {
 <Dialog open={open} onClose={handleClose}>
   <DialogTitle>Whats on your mind?</DialogTitle>
   <DialogContent>
-    <DialogContentText>
-Post something interesting!
-    </DialogContentText>
-
-
-
-
 <AddArticle/>
-
   </DialogContent>
   <DialogActions>
     <Button onClick={handleClose}>Close</Button>

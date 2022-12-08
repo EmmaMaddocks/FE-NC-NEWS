@@ -12,10 +12,12 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
+import { teal } from '@mui/material/colors';
+
 
 const pages = ['Articles', 'Topics', '+'];
-const settings = ['Profile', 'My Articles', 'Logout'];
+const settings = ['Profile'];
+
 
 function Nav(loggedInUser) {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -37,22 +39,21 @@ function Nav(loggedInUser) {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" color="primary">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography
-            variant="h6"
+            variant="h2"
             noWrap
             component="a"
             href="/"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
+              fontFamily: 'Montserrat',
               fontWeight: 700,
               letterSpacing: '.3rem',
-              color: 'inherit',
+              color: 'white',
               textDecoration: 'none',
             }}
           >
@@ -98,7 +99,6 @@ function Nav(loggedInUser) {
      
             </Menu> */}
           </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Typography
             variant="h5"
             noWrap
@@ -108,10 +108,10 @@ function Nav(loggedInUser) {
               mr: 2,
               display: { xs: 'flex', md: 'none' },
               flexGrow: 1,
-              fontFamily: 'monospace',
+              fontFamily: 'Montserrat',
               fontWeight: 700,
               letterSpacing: '.3rem',
-              color: 'inherit',
+              color: 'white',
               textDecoration: 'none',
             }}
           >
@@ -130,12 +130,12 @@ function Nav(loggedInUser) {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
+            <Tooltip title="User menu">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt={loggedInUser} src="https://robincollettephotography.com/wp-content/uploads/sites/7154/2021/04/sacramento_headshot_photographer-1-1.jpg" />
+                <Avatar  src="https://robincollettephotography.com/wp-content/uploads/sites/7154/2021/04/sacramento_headshot_photographer-1-1.jpg" />
               </IconButton>
             </Tooltip>
-            {/* <Menu
+            <Menu
               sx={{ mt: '45px' }}
               id="menu-appbar"
               anchorEl={anchorElUser}
@@ -153,10 +153,10 @@ function Nav(loggedInUser) {
             >
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+                  <Typography textAlign="center" component={Link} to="/users/jessjelly">{setting}</Typography>
                 </MenuItem>
               ))}
-            </Menu> */}
+            </Menu>
           </Box>
         </Toolbar>
       </Container>
@@ -168,25 +168,3 @@ export default Nav;
 
 
 
-// function Nav() {
-//   return (
-//     <div className="nav-bar">
-//        <Link to="/" className="nav-link">
-//         {/* <BsHouseDoorFill color="white" size={24}/> */}
-//         <h1>NC-NEWS</h1>
-//         </Link>
-//       <nav>
- 
-//         <Link to="/articles" className="nav-link">
-//           All articles
-//         </Link>
-//         <Link to="/topics" className="nav-link">
-//           Topics
-//         </Link>
-//       </nav>
-   
-//     </div>
-//   );
-// }
-
-// export default Nav;

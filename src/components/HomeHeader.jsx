@@ -10,9 +10,7 @@ function HomeHeader({loggedInUser}) {
     return (
 
   <Box sx={{ flexGrow: 1 }}>
-    <AddArticle/>
     <Box sx={{ flexGrow: 1 }}>
-    
     <RecentArticles/>
     <HighestVotedArticles/>
     <MostCommentedArticles/>

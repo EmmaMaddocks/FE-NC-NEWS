@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import * as api from '../utils/api'
-import { BsHandThumbsUp, BsHandThumbsDown } from "react-icons/bs";
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import ThumbDownIcon from '@mui/icons-material/ThumbDown';
+import IconButton from '@mui/material/IconButton';
+import Box from '@mui/material/Box';
 
 
 function HandleVotes({article}) {
@@ -29,11 +32,18 @@ const HandleInc = () => {
 
 return (
   <>
+      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
    <p>{votes + voteIncrement}</p>
-   <div className='votes'> 
-    <BsHandThumbsUp         color={voteUp ? "rgb(3, 169, 152)" : "black" } size={20} onClick={HandleInc}/>
-    <BsHandThumbsDown color={voteDown ? "rgb(3, 169, 152)" : "black" } size={20} onClick={HandleDec}/>
-    </div>
+
+   <IconButton aria-label="vote on article">
+   
+    <ThumbUpIcon         color={voteUp ? "rgb(3, 169, 152)" : "black" } size={20} onClick={HandleInc}/>
+    </IconButton>
+    <IconButton aria-label="vote on article">
+
+    <ThumbDownIcon color={voteDown ? "rgb(3, 169, 152)" : "black" } size={20} onClick={HandleDec}/>
+    </IconButton>
+    </Box>
     </>
 )
     }

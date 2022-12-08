@@ -48,7 +48,7 @@ const Comments = ({ article_id, loggedInUser }) => {
         {comments.map((comment) => {
 
           return (
-          <IndividualComment       comments={comments} article_id={article_id} comment={comment} loggedInUser={loggedInUser} />
+          <IndividualComment key={comment.comment_id} comments={comments} article_id={article_id} comment={comment} loggedInUser={loggedInUser} />
           );
         })}
       </List>

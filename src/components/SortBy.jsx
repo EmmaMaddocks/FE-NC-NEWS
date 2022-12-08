@@ -50,6 +50,7 @@ return (
           onChange={handleSortBy}
           displayEmpty
           inputProps={{ 'aria-label': 'Without label' }}
+          defaultValue=""
         >
 
           <MenuItem value='created_at'>Date</MenuItem>
@@ -68,6 +69,7 @@ return (
           onChange={handleOrder}
           displayEmpty
           inputProps={{ 'aria-label': 'Without label' }}
+          defaultValue=""
         >
    
           <MenuItem value="DESC">Descending</MenuItem>

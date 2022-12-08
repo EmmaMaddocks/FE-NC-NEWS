@@ -20,7 +20,7 @@ function AllTopics() {
         setError(error);
         setIsLoading(false);
       });
-  }, [setTopics]);
+  }, []);
 
 
   if (isLoading) return <Loading />;

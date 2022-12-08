@@ -59,6 +59,11 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import formatDate from "../utils/api";
 import HandleVotes from "./Votes";
+import MuiButton from '@mui/material/Button';
+import Box from '@mui/material/Box';
+import LetteredAvatar from 'lettered-avatar';
+
+
 
 
 
@@ -75,19 +80,19 @@ const SmallArticleCard = ({ article }) => {
 
       const [articleAuthor, setarticleAuthor] = useState(null)
 
-      useEffect(() => {
-        fetch(`https://fair-blue-ladybug-wear.cyclic.app/api/users/${author}`)
-          .then((res) => res.json())
-          .then((response) => {
+      // useEffect(() => {
+      //   fetch(`https://fair-blue-ladybug-wear.cyclic.app/api/users/${author}`)
+      //     .then((res) => res.json())
+      //     .then((response) => {
         
 
-            setarticleAuthor(response[0]);
-            console.log(articleAuthor.avatar_url)
-          })
-          .catch((error) => {
+      //       setarticleAuthor(response[0]);
+      //       console.log(articleAuthor.avatar_url)
+      //     })
+      //     .catch((error) => {
 
-          });
-      }, [setarticleAuthor]);
+      //     });
+      // }, []);
 
 
   return (
@@ -95,9 +100,15 @@ const SmallArticleCard = ({ article }) => {
       m: 1 }}>
       <CardHeader
         avatar={
-          <Avatar  aria-label="author" src={articleAuthor.avatar_url}>
-            
-          </Avatar>
+          <LetteredAvatar className='avatar' name={author} options={{  
+  
+            size: 50, 
+            twoLetter: true,
+            shape: 'round',
+            bgColor: 'rgb(3, 169, 152)', 
+            tooltip: false, 
+            imgClass: 'avatar'
+          }}/>
         }
         action={
           <IconButton aria-label="settings">
@@ -118,18 +129,15 @@ const SmallArticleCard = ({ article }) => {
       {title}
         </Typography>
       </CardContent>
-      <CardActions disableSpacing>
-        <IconButton aria-label="vote on article">
+
+      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', pl: 1, pr: 1 }}>
+
         <HandleVotes article={article} />
-        </IconButton>
-        <IconButton aria-label="share">
-          <ShareIcon />
-        </IconButton>
-        <IconButton aria-label="share">
-        <Link to={`/articles/${article_id}`} className='article-link'>
-Read Article
-  </Link>        </IconButton>
-      </CardActions>
+          
+        <MuiButton sx={{ borderRadius: '16px', color: 'white' }} size="small" variant="contained" component={Link} to={`/articles/${article_id}`} >
+    Read 
+  </MuiButton>
+      </Box>
     
     </Card>
   );
